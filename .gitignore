@@ -30,3 +30,8 @@
 
 # Debug files
 *.dSYM/
+
+
+#Autogen crap
+*.v
+*.cache
