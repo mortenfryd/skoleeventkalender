@@ -33,5 +33,5 @@
 
 
 #Autogen crap
-*.v
+*.suo
 *.cache
