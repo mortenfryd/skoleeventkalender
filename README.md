@@ -1,4 +1,5 @@
 # skoleeventkalender
-Skole projekt
+<p>Information kommer snart!</p>
+
 
 .
