@@ -64,14 +64,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-=======
     <Content Include="CSS\Main.css" />
     <Content Include="Web.config" />
->>>>>>> 27c025e738610075f08e228be05ae71cf54090cf
     <Content Include="eventview.aspx" />
     <Content Include="default.aspx" />
   </ItemGroup>

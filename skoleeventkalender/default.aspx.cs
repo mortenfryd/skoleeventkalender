@@ -16,7 +16,7 @@ namespace skoleeventkalender
 
         protected void login_Click(object sender, EventArgs e)
         {
-            string DB_user, DB_pass;
+            string DB_user="", DB_pass="";
 
             if (username.Text != "" && password.Text != "")
             {
