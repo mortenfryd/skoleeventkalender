@@ -5,6 +5,7 @@ using System.Web;
 using System.Data;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using MySql.Data.MySqlClient;
 
 namespace skoleeventkalender
 {
@@ -12,12 +13,12 @@ namespace skoleeventkalender
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            eventCalender.DataSource = getTestData();
+            eventCalender.DataSource = MySQLData;
 
-            eventCalender.DataStartField = "start";
-            eventCalender.DataEndField = "end";
-            eventCalender.DataTextField = "name";
-            eventCalender.DataIdField = "id";
+            eventCalender.DataStartField = "startDate";
+            eventCalender.DataEndField = "endDate";
+            eventCalender.DataTextField = "eventName";
+            eventCalender.DataIdField = "eg_id";
 
             eventCalender.StartDate = DateTime.Now;
             eventCalender.Days = 5;
@@ -51,6 +52,11 @@ namespace skoleeventkalender
 
             return dt;
 
+        }
+
+        private SqlDataSource getMySqlDataSource() 
+        {
+            return MySQLData;
         }
     }
 }
