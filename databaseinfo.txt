@@ -1,0 +1,4 @@
+ip 46.101.137.5
+port 5123
+root
+jegkanlikage
