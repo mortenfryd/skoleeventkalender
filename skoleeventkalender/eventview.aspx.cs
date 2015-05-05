@@ -15,7 +15,6 @@ namespace skoleeventkalender
 
             databaseConnection ny = new databaseConnection();
             ny.DBConnect();
-            ny.openConnection();
 
             eventCalender.DataSource = MySQLData;
 
