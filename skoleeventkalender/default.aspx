@@ -4,7 +4,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' />
-    <link href="CSS/Main.css" rel="stylesheet" />
+    <link href="CSS/Login.CSS" rel="stylesheet" />
     
     <div class="login_page">
     <p>Username</p>

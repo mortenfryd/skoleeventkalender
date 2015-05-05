@@ -67,7 +67,7 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="CSS\Main.css" />
+    <Content Include="CSS\Login.css" />
     <Content Include="Web.config" />
     <Content Include="eventview.aspx" />
     <Content Include="default.aspx" />
