@@ -11,7 +11,8 @@
     <asp:TextBox CssClass="textbox" ID="username" runat="server"></asp:TextBox>    
     <p>Password</p> 
     <asp:TextBox CssClass="textbox" ID="password" runat="server" TextMode="Password"></asp:TextBox> <br /> <br />
-    <asp:Button CssClass="btn" ID="login" Text="Login" runat="server" /> <br /> <br />
+    <asp:Button CssClass="btn" ID="login" Text="Login" runat="server" OnClick="login_Click" /> <br /> <br />
+    <asp:Label ID="errorlabel" runat="server"></asp:Label> <br /> <br />
     <a href="eventview.aspx">eventview.aspx</a> 
     </div>
 </asp:Content>
