@@ -10,7 +10,25 @@
 namespace skoleeventkalender {
     
     
-    public partial class WebForm2 {
+    public partial class WebForm1 {
+        
+        /// <summary>
+        /// firstname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox firstname;
+        
+        /// <summary>
+        /// lastname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox lastname;
         
         /// <summary>
         /// username control.
@@ -31,22 +49,31 @@ namespace skoleeventkalender {
         protected global::System.Web.UI.WebControls.TextBox password;
         
         /// <summary>
-        /// makeuser control.
+        /// passwordconfirm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button makeuser;
+        protected global::System.Web.UI.WebControls.TextBox passwordconfirm;
         
         /// <summary>
-        /// login control.
+        /// tilbage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button login;
+        protected global::System.Web.UI.WebControls.Button tilbage;
+        
+        /// <summary>
+        /// confirm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button confirm;
         
         /// <summary>
         /// errorlabel control.
