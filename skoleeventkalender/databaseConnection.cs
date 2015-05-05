@@ -82,6 +82,35 @@ namespace skoleeventkalender
            }
        }
 
+       enum createLoginStatus
+       {
+           userAlreadyExist,
+           usernameOrPasswordIlligal
+       }
+
+        public int CreateLogin(){
+
+            if (this.openConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, this.connection);
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+
+                }
+
+                dr.Close();
+
+                this.closeConnection();
+            }
+            else
+            {
+            }
+
+            return (int)createLoginStatus.userAlreadyExist;
+        }
+
         public DataTable GetCalenderEventData()
         {
 
