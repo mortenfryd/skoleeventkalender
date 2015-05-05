@@ -22,7 +22,7 @@ namespace skoleeventkalender
 
             eventCalender.StartDate = DateTime.Now;
             eventCalender.Days = 5;
-
+            //testCall();
             if (!IsPostBack)
                 DataBind();
 
@@ -57,6 +57,13 @@ namespace skoleeventkalender
         private SqlDataSource getMySqlDataSource() 
         {
             return MySQLData;
+        }
+        public void testCall()
+        {
+            databaseConnection ny = new databaseConnection();
+            ny.DBConnect();
+            ny.openConnention();
+
         }
     }
 }
