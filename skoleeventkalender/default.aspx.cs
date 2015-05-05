@@ -12,30 +12,27 @@ namespace skoleeventkalender
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["u_id"] != null)
+            {
+                Response.Redirect("eventview.aspx");
+            }
+            else
+            {
 
+            }
         }
 
         protected void login_Click(object sender, EventArgs e)
         {
-            string DB_user="", DB_pass="";
             databaseConnection DB = new databaseConnection();
-            MySqlConnection DBClone = DB.getClone();
-            
+            DB.DBConnect();
 
+            int user_id = DB.Login(username.Text, password.Text);
             
-
-            if (username.Text != "" && password.Text != "")
+            if (user_id != -1)
             {
-                //SQL query her
-
-                if (DB_user == username.Text && DB_pass == password.Text)
-                {
-                    
-                }
-                else
-                {
-                    errorlabel.Text = "Brugernavn eller kodeord er forkert";
-                }
+                Session["u_id"] = user_id;
+                Response.Redirect("eventview.aspx");
             }
             else
             {
