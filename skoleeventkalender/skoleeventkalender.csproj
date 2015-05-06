@@ -84,6 +84,7 @@
       <DependentUpon>adminPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="databaseConnection.cs" />
+    <Compile Include="logoutVisible.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="master.Master.cs">
       <DependentUpon>master.Master</DependentUpon>
