@@ -14,5 +14,11 @@ namespace skoleeventkalender
             logoutVisible log =new logoutVisible();
             log.logoutVisibleM();
         }
+
+        protected void LogoutBtn_Click(object sender, EventArgs e)
+        {
+            Session["u_id"] = null;
+            Response.Redirect("Default.aspx");
+        }
     }
 }

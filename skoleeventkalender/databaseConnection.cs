@@ -61,7 +61,7 @@ namespace skoleeventkalender
        // Hvis brugeren ikke findes returneres -1;
        public int Login(string email, string password)
        {
-           string query = "SELECT u_id FROM users WHERE email = @email AND pass = @pass";
+           string query = "SELECT u_id FROM users WHERE email = @email AND pass = SHA1(@pass)";
            int userId = -1;
 
            if (this.openConnection())
@@ -108,10 +108,10 @@ namespace skoleeventkalender
 
                 cmd.Parameters.Add(new MySqlParameter("p_firstname", userinfo["Firstname"]));
                 cmd.Parameters.Add(new MySqlParameter("p_lastname", userinfo["Lastname"]));
-                cmd.Parameters.Add(new MySqlParameter("p_username", userinfo["username"]));
-                cmd.Parameters.Add(new MySqlParameter("p_password", userinfo["password"]));
-                cmd.Parameters.Add(new MySqlParameter("p_birthday", userinfo["birthday"]));
-                cmd.Parameters.Add(new MySqlParameter("p_is_admin", userinfo["userinfo"]));
+                cmd.Parameters.Add(new MySqlParameter("p_username", userinfo["Username"]));
+                cmd.Parameters.Add(new MySqlParameter("p_password", userinfo["Password"]));
+                cmd.Parameters.Add(new MySqlParameter("p_birthday", userinfo["Birthday"]));
+                cmd.Parameters.Add(new MySqlParameter("p_is_admin", "0"));
 
                 cmd.ExecuteNonQuery();
 
