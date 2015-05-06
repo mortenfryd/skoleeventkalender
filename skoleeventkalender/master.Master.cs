@@ -11,13 +11,19 @@ namespace skoleeventkalender
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            logoutVisible log =new logoutVisible();
-            log.logoutVisibleM();
+            if (Session["u_id"] != null)
+            {
+                LogoutBtn.Visible = true;
+            }
+            else
+            {
+                LogoutBtn.Visible = false;
+            }
         }
 
         protected void LogoutBtn_Click(object sender, EventArgs e)
         {
-            Session["u_id"] = null;
+            Session.Contents.Remove("u_id");
             Response.Redirect("Default.aspx");
         }
     }

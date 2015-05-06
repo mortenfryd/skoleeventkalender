@@ -51,8 +51,7 @@ namespace skoleeventkalender
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            logoutVisible log = new logoutVisible();
-            log.logoutVisibleM();
+            
             if (flag == 0)
             {
 

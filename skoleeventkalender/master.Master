@@ -8,23 +8,6 @@
     <title>Kristian's mor er som byens cykle.. alle har haft en tur.</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <script type="text/javascript">
-        
-        function hideShow()
-        {        
-            if (window.location.pathname.indexOf("default.aspx") != -1) {
-                document.getElementById("LogoutBtn").style.visibility = "hidden";                
-            }
-            else if (window.location.pathname.indexOf("opretbruger.aspx") != -1) {
-                document.getElementById("LogoutBtn").style.visibility = "hidden";             
-            }
-            else
-                document.getElementById("LogoutBtn").style.visibility = "visible";
-        }
-        window.onload = hideShow;
-        
-    </script>
-
 
 </head>
 <body>
