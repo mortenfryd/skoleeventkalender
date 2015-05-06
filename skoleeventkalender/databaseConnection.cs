@@ -61,7 +61,7 @@ namespace skoleeventkalender
        // Hvis brugeren ikke findes returneres -1;
        public int Login(string email, string password)
        {
-           string query = "SELECT u_id FROM users WHERE email = @email AND pass = @pass";
+           string query = "SELECT u_id FROM users WHERE email = @email AND pass = SHA1(@pass)";
            int userId = -1;
 
            if (this.openConnection())
