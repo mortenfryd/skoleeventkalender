@@ -5,7 +5,7 @@
 
 <head runat="server">
 <link href="CSS\generalStyle.css" rel="stylesheet" />    
-    <title>Søren Bums</title>
+    <title>Kristian's mor er som byens cykle.. alle har haft en tur.</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <script type="text/javascript">
