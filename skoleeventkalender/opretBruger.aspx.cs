@@ -30,7 +30,13 @@ namespace skoleeventkalender
             if (username.Text != "" && password.Text != "" && passwordconfirm.Text != "" && firstname.Text != "" && lastname.Text != "" )
             {
                 //Der er noget i felterne, vi fortsætter
-
+                DB.CreateLogin(new Dictionary<string,string>{
+                    { "username", username.Text },
+                    { "password", password.Text },
+                    { "firstname", firstname.Text},
+                    { "lastname", lastname.Text},
+                    { "birthday", birthday.Text}
+                });
             }
             else
             {

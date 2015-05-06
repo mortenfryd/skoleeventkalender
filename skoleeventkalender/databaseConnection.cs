@@ -96,7 +96,7 @@ namespace skoleeventkalender
            userPassIlligal
        }
 
-        public int CreateLogin(){
+        public int CreateLogin(Dictionary<string,string> userinfo){
 
             string query = "create_user_procedure"; 
 
@@ -105,12 +105,12 @@ namespace skoleeventkalender
                 MySqlCommand cmd = new MySqlCommand(query, this.connection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.Add(new MySqlParameter("p_firstname", "test"));
-                cmd.Parameters.Add(new MySqlParameter("p_lastname", "test"));
-                cmd.Parameters.Add(new MySqlParameter("p_username", "test"));
-                cmd.Parameters.Add(new MySqlParameter("p_password", "test"));
-                cmd.Parameters.Add(new MySqlParameter("p_birthday", "2002-02-04"));
-                cmd.Parameters.Add(new MySqlParameter("p_is_admin", "0"));
+                cmd.Parameters.Add(new MySqlParameter("p_firstname", userinfo["Firstname"]));
+                cmd.Parameters.Add(new MySqlParameter("p_lastname", userinfo["Lastname"]));
+                cmd.Parameters.Add(new MySqlParameter("p_username", userinfo["username"]));
+                cmd.Parameters.Add(new MySqlParameter("p_password", userinfo["password"]));
+                cmd.Parameters.Add(new MySqlParameter("p_birthday", userinfo["birthday"]));
+                cmd.Parameters.Add(new MySqlParameter("p_is_admin", userinfo["userinfo"]));
 
                 cmd.ExecuteNonQuery();
 
