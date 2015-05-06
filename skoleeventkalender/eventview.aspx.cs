@@ -13,18 +13,20 @@ namespace skoleeventkalender
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            databaseConnection ny = new databaseConnection();
-            ny.DBConnect();
+            // Connect to DB.
+            databaseConnection DB = new databaseConnection();
+            DB.DBConnect();
 
-            eventCalender.DataSource = MySQLData;
+            // Set calender start date.
+            eventCalender.StartDate = DateTime.Now;
+            eventCalender.Days = 5;
+
+            eventCalender.DataSource = DB.GetCalenderEventData();
 
             eventCalender.DataStartField = "startDate";
             eventCalender.DataEndField = "endDate";
             eventCalender.DataTextField = "eventName";
             eventCalender.DataIdField = "eg_id";
-
-            eventCalender.StartDate = DateTime.Now;
-            eventCalender.Days = 5;
 
             if (!IsPostBack)
                 DataBind();
@@ -55,11 +57,6 @@ namespace skoleeventkalender
 
             return dt;
 
-        }
-
-        private SqlDataSource getMySqlDataSource() 
-        {
-            return MySQLData;
         }
       
     }

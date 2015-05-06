@@ -7,6 +7,12 @@
     font-size: 25px;
 
 }
+
+.opret_bruger {
+    text-align: center;
+    font-size: 25px;
+}
+
 .textboxUser, .textboxPass {
     background: #F1F1F1 url(http://html-generator.weebly.com/files/theme/input-text-40.png) no-repeat;
     background-position: 5px -7px !important;
@@ -26,7 +32,6 @@
 
 .textboxPass[type="text"], .textboxUser[type="text"] 
 {
-    font-size:12px;
     font-family: 'Open Sans', sans-serif;
 }
 

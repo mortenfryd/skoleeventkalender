@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using MySql.Data.MySqlClient;
 
 namespace skoleeventkalender
 {
@@ -11,30 +12,37 @@ namespace skoleeventkalender
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["u_id"] != null)
+            {
+                Response.Redirect("eventview.aspx");
+            }
+            else
+            {
 
+            }
         }
 
         protected void login_Click(object sender, EventArgs e)
         {
-            string DB_user="", DB_pass="";
+            databaseConnection DB = new databaseConnection();
+            DB.DBConnect();
 
-            if (username.Text != "" && password.Text != "")
+            int user_id = DB.Login(username.Text, password.Text);
+            
+            if (user_id != -1)
             {
-                //SQL query her
-
-                if (DB_user == username.Text && DB_pass == password.Text)
-                {
-                    
-                }
-                else
-                {
-                    errorlabel.Text = "Brugernavn eller kodeord er forkert";
-                }
+                Session["u_id"] = user_id;
+                Response.Redirect("eventview.aspx");
             }
             else
             {
                 errorlabel.Text = "Fejl i indtasting";
             }
+        }
+
+        protected void makeuser_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("opretbruger.aspx");
         }
     }
 }
