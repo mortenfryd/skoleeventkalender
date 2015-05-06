@@ -30,7 +30,7 @@ namespace skoleeventkalender
             eventCalender.DataTextField = "eventName";
             eventCalender.DataIdField = "eg_id";
 
-            DB.CreateLogin();
+            
 
             if (!IsPostBack)
                 DataBind();
