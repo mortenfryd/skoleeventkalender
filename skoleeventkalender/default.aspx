@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="CSS/Login.CSS" rel="stylesheet" />
     <div class="login_page">
-    <h1>Event Kalender Login</h1>
+    <h1>Login</h1>
     <span>Username</span> <br />
     <asp:TextBox CssClass="textboxUser" ID="username" runat="server"></asp:TextBox> <br />  
     <span>Password</span> <br />

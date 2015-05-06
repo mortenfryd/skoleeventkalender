@@ -6,13 +6,12 @@ body {
 
 .login_page {
     text-align: center;
-    font-size: 25px;
+    font-size: 18px;
 
 }
 
-.opret_bruger {
-    text-align: center;
-    font-size: 25px;
+.login_page h1 {
+    font-size: 20px
 }
 
 .textboxUser, .textboxPass {
