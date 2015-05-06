@@ -11,11 +11,21 @@ namespace skoleeventkalender
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["u_id"] != null)
+            {
+                Response.Redirect("eventview.aspx");
+            }
+            else
+            {
+                
+            }
         }
 
         protected void confirm_Click(object sender, EventArgs e)
         {
+            databaseConnection DB = new databaseConnection();
+            DB.DBConnect();
+
             if (username.Text != "" && password.Text != "" && passwordconfirm.Text != "")
             {
                 //Der er noget i felterne, vi fortsætter
