@@ -51,14 +51,16 @@ namespace skoleeventkalender
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+       
+            eventCalender.Days = 7;
+
+
             if (flag == 0)
             {
-
-
                 updateKalender("denne", DateTime.Now);
                 flag = 1;
             }
+
             /*
             // Connect to DB.
             databaseConnection DB = new databaseConnection();
