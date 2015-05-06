@@ -1,0 +1,27 @@
+﻿body {
+
+}
+.toptext {
+    font-family: 'Open Sans', sans-serif;
+    color: darkslategrey;
+    text-align:center;
+    text-shadow: 1px 1px 2px #bababa;
+}
+.header {
+    height:100px;
+    width:auto;
+}
+.adminmenu {
+    
+}
+ul {
+    list-style-type: none;
+}
+li {
+    display: inline;
+}
+.log {
+    height: 20px;
+    width: 100px;
+    float: right;
+}

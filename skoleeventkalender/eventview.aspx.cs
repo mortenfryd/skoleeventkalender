@@ -12,7 +12,8 @@ namespace skoleeventkalender
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            logoutVisible log = new logoutVisible();
+            log.logoutVisibleM();
             // Connect to DB.
             databaseConnection DB = new databaseConnection();
             DB.DBConnect();
