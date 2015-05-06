@@ -19,10 +19,10 @@ namespace skoleeventkalender
             DB.DBConnect();
 
             // Set calender start date.
-            eventCalender.StartDate = DateTime.Now;
+            eventCalender.StartDate = DateTime.Now ;
             eventCalender.Days = 5;
 
-            eventCalender.DataSource = DB.GetCalenderEventData();
+            eventCalender.DataSource = DB.GetCalenderEventData(); 
 
             eventCalender.DataStartField = "startDate";
             eventCalender.DataEndField = "endDate";

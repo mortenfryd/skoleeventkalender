@@ -111,10 +111,10 @@ namespace skoleeventkalender
             return (int)createLoginStatus.userAlreadyExist;
         }
 
-        public DataTable GetCalenderEventData()
+        public DataTable GetCalenderEventData(DateTime start, DateTime end)
         {
 
-            string query = "SELECT * FROM events_general";
+            string query = "SELECT * FROM events_general where startDate >= "+start+" and startDate <= "+end;
             DataTable dt = new DataTable();
 
             dt.Columns.Add("eg_id", typeof(string));
