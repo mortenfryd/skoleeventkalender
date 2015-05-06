@@ -29,5 +29,32 @@ namespace skoleeventkalender {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DayPilot.Web.Ui.DayPilotCalendar eventCalender;
+        
+        /// <summary>
+        /// forrigeUgeBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button forrigeUgeBtn;
+        
+        /// <summary>
+        /// denneUgeBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button denneUgeBtn;
+        
+        /// <summary>
+        /// naesteUgeBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button naesteUgeBtn;
     }
 }

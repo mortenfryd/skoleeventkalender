@@ -10,4 +10,7 @@
     ProviderName="MySql.Data.MySqlClient"/>
 
     <DayPilot:DayPilotCalendar ID="eventCalender" runat="server" />
+    <asp:Button ID="forrigeUgeBtn" runat="server" Text="Forrige uge" float="left" OnClick="forrigeUgeBtn_Click"/>
+    <asp:Button ID="denneUgeBtn" runat="server" Text="Denne uge"  float="center" OnClick="denneUgeBtn_Click"/>
+    <div style=" float:right"><asp:Button ID="naesteUgeBtn" runat="server" Text="Næste uge" OnClick="naesteUgeBtn_Click" /></div>
 </asp:Content>
