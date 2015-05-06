@@ -7,18 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace skoleeventkalender
 {
-    public partial class Site1 : System.Web.UI.MasterPage
+    public partial class adminPage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["u_id"] != null)
-            {
 
-            }
-            else
-            {
-                
-            }
         }
     }
 }
