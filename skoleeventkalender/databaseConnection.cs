@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.Globalization;
 
 namespace skoleeventkalender
 {
@@ -125,8 +126,13 @@ namespace skoleeventkalender
 
         public DataTable GetCalenderEventData(DateTime start, DateTime end)
         {
-
-            string query = "SELECT * FROM events_general where startDate >= "+start+" and startDate <= "+end;
+            /*DateTime st = DateTime.ParseExact(start.ToString(), "dd/MM/yyy hh:mm:ss tt", CultureInfo.InvariantCulture);
+            DateTime ed = DateTime.ParseExact(end.ToString(), "dd/MM/yyy hh:mm:ss tt", CultureInfo.InvariantCulture);*/
+            DateTime fix = new DateTime(2008, 12, 06, 11, 30, 25);
+            string dato = fix.ToString("u");
+            
+            //string query = "SELECT * FROM events_general where startDate >= " + st.ToString("yyyy/mm/dd hh:mm:ss") + " and startDate <= " + ed.ToString("yyyy/mm/dd hh:mm:ss") + ";";
+            
             DataTable dt = new DataTable();
 
             dt.Columns.Add("eg_id", typeof(string));
