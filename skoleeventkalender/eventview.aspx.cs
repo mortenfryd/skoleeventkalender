@@ -22,19 +22,21 @@ namespace skoleeventkalender
             dateHandler dateH = new dateHandler();
             eventCalender.StartDate = dateH.denneUge();
             eventCalender.Days = 7;
+            eventCalender.TimeFormat = DayPilot.Web.Ui.Enums.TimeFormat.Clock24Hours;
+            eventCalender.HeaderDateFormat = "yyyy-MM-dd";
 
-            eventCalender.DataSource = DB.GetCalenderEventData(eventCalender.StartDate.Date, eventCalender.StartDate.Date.AddDays(7)); 
+            eventCalender.DataSource = DB.GetCalenderEventData(eventCalender.StartDate, eventCalender.StartDate.AddDays(7));
+
+            Response.Write(eventCalender.StartDate.ToString() + ", " + eventCalender.StartDate.AddDays(7).ToString());
+            Response.Write(dateH.denneUge().ToString());
 
             eventCalender.DataStartField = "startDate";
             eventCalender.DataEndField = "endDate";
             eventCalender.DataTextField = "eventName";
             eventCalender.DataIdField = "eg_id";
 
-            
-
             if (!IsPostBack)
                 DataBind();
-
         }
 
         private DataTable getTestData()

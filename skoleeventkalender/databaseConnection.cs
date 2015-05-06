@@ -126,12 +126,8 @@ namespace skoleeventkalender
 
         public DataTable GetCalenderEventData(DateTime start, DateTime end)
         {
-            /*DateTime st = DateTime.ParseExact(start.ToString(), "dd/MM/yyy hh:mm:ss tt", CultureInfo.InvariantCulture);
-            DateTime ed = DateTime.ParseExact(end.ToString(), "dd/MM/yyy hh:mm:ss tt", CultureInfo.InvariantCulture);*/
-            DateTime fix = new DateTime(2008, 12, 06, 11, 30, 25);
-            string dato = fix.ToString("u");
-            
-            //string query = "SELECT * FROM events_general where startDate >= " + st.ToString("yyyy/mm/dd hh:mm:ss") + " and startDate <= " + ed.ToString("yyyy/mm/dd hh:mm:ss") + ";";
+           
+            string query = "SELECT * FROM events_general where startDate >= '" + start.ToString("yyyy-MM-dd HH:mm:ss") + "' and startDate <= '" + end.ToString("yyyy-MM-dd HH:mm:ss") + "';";
             
             DataTable dt = new DataTable();
 
