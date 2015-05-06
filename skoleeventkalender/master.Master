@@ -11,12 +11,12 @@
     <script type="text/javascript">
         
         function hideShow()
-        {
+        {        
             if (window.location.pathname.indexOf("default.aspx") != -1) {
-                document.getElementById("LogoutBtn").style.visibility = "hidden";
+                document.getElementById("LogoutBtn").style.visibility = "hidden";                
             }
             else if (window.location.pathname.indexOf("opretbruger.aspx") != -1) {
-                document.getElementById("LogoutBtn").style.visibility = "hidden";
+                document.getElementById("LogoutBtn").style.visibility = "hidden";             
             }
             else
                 document.getElementById("LogoutBtn").style.visibility = "visible";
@@ -35,7 +35,7 @@
                 <h1>
                     Event Manager
                 </h1>
-                <asp:Button ID="LogoutBtn" runat="server" Text="Logout" />
+                <asp:Button ID="LogoutBtn" runat="server" Text="Logout" OnClick="LogoutBtn_Click" />
             </div>
             
         </div>
