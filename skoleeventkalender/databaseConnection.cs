@@ -56,6 +56,8 @@ namespace skoleeventkalender
             }
         }
 
+       // Login funktion
+       // Hvis brugeren ikke findes returneres -1;
        public int Login(string email, string password)
        {
            string query = "SELECT u_id FROM users WHERE email = @email AND pass = @pass";
@@ -64,16 +66,21 @@ namespace skoleeventkalender
            if (this.openConnection())
            {
                MySqlCommand cmd = new MySqlCommand(query, this.connection);
+
                cmd.Parameters.AddWithValue("@email", email);
                cmd.Parameters.AddWithValue("@pass", password);
+
                MySqlDataReader dr = cmd.ExecuteReader();
+
                while (dr.Read())
                {
                    userId = Convert.ToInt32(dr["u_id"].ToString());
                }
+
                dr.Close();
 
                this.closeConnection();
+
                return userId;
            }
            else
@@ -82,25 +89,30 @@ namespace skoleeventkalender
            }
        }
 
-       enum createLoginStatus
+       public enum createLoginStatus
        {
+           success,
            userAlreadyExist,
-           usernameOrPasswordIlligal
+           userPassIlligal
        }
 
         public int CreateLogin(){
 
+            string query = "create_user_procedure"; 
+
             if (this.openConnection())
             {
                 MySqlCommand cmd = new MySqlCommand(query, this.connection);
-                MySqlDataReader dr = cmd.ExecuteReader();
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                while (dr.Read())
-                {
+                cmd.Parameters.Add(new MySqlParameter("p_firstname", "test"));
+                cmd.Parameters.Add(new MySqlParameter("p_lastname", "test"));
+                cmd.Parameters.Add(new MySqlParameter("p_username", "test"));
+                cmd.Parameters.Add(new MySqlParameter("p_password", "test"));
+                cmd.Parameters.Add(new MySqlParameter("p_birthday", "2002-02-04"));
+                cmd.Parameters.Add(new MySqlParameter("p_is_admin", "0"));
 
-                }
-
-                dr.Close();
+                cmd.ExecuteNonQuery();
 
                 this.closeConnection();
             }
@@ -111,10 +123,10 @@ namespace skoleeventkalender
             return (int)createLoginStatus.userAlreadyExist;
         }
 
-        public DataTable GetCalenderEventData()
+        public DataTable GetCalenderEventData(DateTime start, DateTime end)
         {
 
-            string query = "SELECT * FROM events_general";
+            string query = "SELECT * FROM events_general where startDate >= "+start+" and startDate <= "+end;
             DataTable dt = new DataTable();
 
             dt.Columns.Add("eg_id", typeof(string));

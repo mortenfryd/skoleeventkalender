@@ -11,14 +11,8 @@ namespace skoleeventkalender
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["u_id"] != null)
-            {
-
-            }
-            else
-            {
-                
-            }
+            logoutVisible log =new logoutVisible();
+            log.logoutVisibleM();
         }
     }
 }

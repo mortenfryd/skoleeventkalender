@@ -12,21 +12,24 @@ namespace skoleeventkalender
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            logoutVisible log = new logoutVisible();
+            log.logoutVisibleM();
             // Connect to DB.
             databaseConnection DB = new databaseConnection();
             DB.DBConnect();
 
             // Set calender start date.
-            eventCalender.StartDate = DateTime.Now;
+            eventCalender.StartDate = DateTime.Now ;
             eventCalender.Days = 5;
 
-            eventCalender.DataSource = DB.GetCalenderEventData();
+            eventCalender.DataSource = DB.GetCalenderEventData(); 
 
             eventCalender.DataStartField = "startDate";
             eventCalender.DataEndField = "endDate";
             eventCalender.DataTextField = "eventName";
             eventCalender.DataIdField = "eg_id";
+
+            DB.CreateLogin();
 
             if (!IsPostBack)
                 DataBind();

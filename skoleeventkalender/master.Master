@@ -5,24 +5,41 @@
 
 <head runat="server">
 <link href="CSS\generalStyle.css" rel="stylesheet" />    
-    <title>Søren Bums</title>
+    <title>Kristian's mor er som byens cykle.. alle har haft en tur.</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <script type="text/javascript">
+        
+        function hideShow()
+        {
+            if (window.location.pathname.indexOf("default.aspx") != -1) {
+                document.getElementById("LogoutBtn").style.visibility = "hidden";
+            }
+            else if (window.location.pathname.indexOf("opretbruger.aspx") != -1) {
+                document.getElementById("LogoutBtn").style.visibility = "hidden";
+            }
+            else
+                document.getElementById("LogoutBtn").style.visibility = "visible";
+        }
+        window.onload = hideShow;
+        
+    </script>
+
+
 </head>
 <body>
     <form id="form1" runat="server">
         
-        
-    <div class="toptext">
-            <h1>
-                Event Manager
-            </h1>
-    </div>
-       
-
-        <div class="logout" align="right">
-            <a id="logoutBtn" href="">Log ud</a>
+        <div class="header">
+            <div class="toptext">
+                <h1>
+                    Event Manager
+                </h1>
+                <asp:Button ID="LogoutBtn" runat="server" Text="Logout" />
+            </div>
+            
         </div>
+        
         
     <div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
