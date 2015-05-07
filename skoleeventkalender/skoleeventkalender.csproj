@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="adminPage.aspx" />
+    <Content Include="createevent.aspx" />
     <Content Include="CSS\generalStyle.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -82,6 +83,13 @@
     </Compile>
     <Compile Include="adminPage.aspx.designer.cs">
       <DependentUpon>adminPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="createevent.aspx.cs">
+      <DependentUpon>createevent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="createevent.aspx.designer.cs">
+      <DependentUpon>createevent.aspx</DependentUpon>
     </Compile>
     <Compile Include="databaseConnection.cs" />
     <Compile Include="dateHandler.cs" />
