@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using MySql.Data.MySqlClient;
 
 namespace skoleeventkalender
 {
@@ -12,6 +13,109 @@ namespace skoleeventkalender
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            if (!Page.IsPostBack)
+            {
+                //Fill Years
+                for (int i = 1900; i <= 2015; i++)
+                {
+                    ddlYear.Items.Add(i.ToString());
+                }
+                ddlYear.Items.FindByValue(System.DateTime.Now.Year.ToString()).Selected = true;  //set current year as selected
+
+                //Fill Months
+                for (int i = 1; i <= 12; i++)
+                {
+                    ddlMonth.Items.Add(i.ToString());
+                }
+                ddlMonth.Items.FindByValue(System.DateTime.Now.Month.ToString()).Selected = true; // Set current month as selected
+
+                //Fill days
+                FillDays();
+            }
+        }
+
+        public void FillDays()
+        {
+            ddlDay.Items.Clear();
+            //getting numbner of days in selected month & year
+            int noofdays = DateTime.DaysInMonth(Convert.ToInt32(ddlYear.SelectedValue), Convert.ToInt32(ddlMonth.SelectedValue));
+
+            //Fill days
+            for (int i = 1; i <= noofdays; i++)
+            {
+                ddlDay.Items.Add(i.ToString());
+            }
+            ddlDay.Items.FindByValue(System.DateTime.Now.Day.ToString()).Selected = true;// Set current date as selected
+        }
+        protected void ddlYear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FillDays();
+        }
+        protected void ddlMonth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FillDays();
+        }
+
+
+        protected void userdropdown_onLoad(object sender, EventArgs e)
+        {
+
+            if (!IsPostBack)
+            {
+                userdropdown.Items.Clear();
+                databaseConnection DB = new databaseConnection();
+                DB.DBConnect();
+
+                MySqlConnection connect = DB.getClone();
+                MySqlCommand cmd = new MySqlCommand("select email from users", connect);
+                connect.Open();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    userdropdown.Items.Add(new ListItem(reader["email"].ToString(), reader["email"].ToString()));
+                }
+                reader.Close();
+                connect.Close();
+            }
+            
+        }
+
+        protected void userdropdown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void select_Click(object sender, EventArgs e)
+        {
+            databaseConnection DB = new databaseConnection();
+            DB.DBConnect();
+
+            MySqlConnection connect = DB.getClone();
+            string valgtnavn = userdropdown.SelectedValue.ToString();
+            MySqlCommand selected = new MySqlCommand("select firstname, lastname, email, birthday, isadmin from users where email =  '"+valgtnavn+"' order by email" , connect);
+            connect.Open();
+            MySqlDataReader reader = selected.ExecuteReader();
+
+            while (reader.Read())
+            {
+                emailtext.Text = reader["email"].ToString();
+                fornavntext.Text = reader["firstname"].ToString();
+                efternavntext.Text = reader["lastname"].ToString();
+                DateTime bday = Convert.ToDateTime(reader["birthday"]);
+                ddlDay.SelectedValue = Convert.ToString(bday.Day);
+                ddlMonth.SelectedValue = Convert.ToString(bday.Month);
+                ddlYear.SelectedValue = Convert.ToString(bday.Year);
+
+                if (reader["isadmin"].ToString() == "1")
+                {
+                    isadmin.Checked = true;
+                }
+                else
+                {
+                    isadmin.Checked = false;
+                }
+            }          
         }
     }
 }
