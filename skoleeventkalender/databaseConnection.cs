@@ -8,6 +8,7 @@ using System.Globalization;
 
 namespace skoleeventkalender
 {
+
     public class databaseConnection
     {
         private MySqlConnection connection;
