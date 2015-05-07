@@ -9,9 +9,10 @@
     <span>Username</span> <br />
     <asp:TextBox CssClass="textboxUser" ID="username" runat="server"></asp:TextBox> <br />  
     <span>Password</span> <br />
-    <asp:TextBox CssClass="textboxPass" ID="password" runat="server" TextMode="Password"></asp:TextBox> <br /> <br />
+    <asp:TextBox CssClass="textboxPass" ID="password" runat="server" TextMode="Password"></asp:TextBox> <br />
+    <asp:Label ID="errorlabel" runat="server"></asp:Label> <br />
     <asp:Button CssClass="btn" ID="login" Text="Login" runat="server" OnClick="login_Click" /><br /> <br />
-    <asp:Button CssClass="btn" ID="makeuser" Text="Opret Bruger" runat="server" OnClick="makeuser_Click" />
-    <asp:Label ID="errorlabel" runat="server"></asp:Label> <br /> <br />
+    <asp:Button CssClass="btn" ID="makeuser" Text="Opret Bruger" runat="server" OnClick="makeuser_Click" /> <br />
+    
     </div>
 </asp:Content>

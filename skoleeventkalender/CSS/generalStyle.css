@@ -2,10 +2,10 @@
 @import url('/CSS/Login.css');
 
 body {
-
+    font-family: 'Open Sans', sans-serif;
+    background-color: lightblue;
 }
 .toptext {
-    font-family: 'Open Sans', sans-serif;
     color: darkslategrey;
     text-align:center;
     text-shadow: 1px 1px 2px #bababa;
