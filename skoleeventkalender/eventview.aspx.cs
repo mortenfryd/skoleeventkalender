@@ -101,7 +101,7 @@ namespace skoleeventkalender
 
         protected void CreateEventBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("createevent.aspx");
+            Response.Redirect("eventcreator.aspx");
         }
       
     }

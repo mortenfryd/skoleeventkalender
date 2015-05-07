@@ -7,19 +7,10 @@ using System.Web.UI.WebControls;
 
 namespace skoleeventkalender
 {
-    public partial class createevent : System.Web.UI.Page
+    public partial class WebForm3 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["u_id"] != null)
-            {
-                Response.Redirect("eventview.aspx");
-            }
-            else
-            {
-
-            }
-
             if (!Page.IsPostBack)
             {
                 //Fill Years
@@ -65,10 +56,10 @@ namespace skoleeventkalender
             ecStartDay.Items.FindByValue(System.DateTime.Now.Day.ToString()).Selected = true;// Set current date as selected
             ecEndDay.Items.FindByValue(System.DateTime.Now.Day.ToString()).Selected = true;// Set current date as selected
         }
-      
+
         protected void ecStartYear_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FillDaysStart(); 
+            FillDaysStart();
             if (Convert.ToInt32(ecEndYear.Text) < Convert.ToInt32(ecStartYear.SelectedValue))
             {
                 ecEndYear.Text = ecStartYear.SelectedValue;
@@ -119,6 +110,28 @@ namespace skoleeventkalender
         protected void eventCreateBtn_Click(object sender, EventArgs e)
         {
             //insert i database og send tilbage til kalender
+
+            databaseConnection DB = new databaseConnection();
+            DB.DBConnect();
+            string startDate = ecStartYear.Text + "-" + ecStartMonth.Text + "-" + ecStartDay.Text;
+            string endDate = ecEndYear.Text + "-" + ecEndMonth.Text + "-" + ecEndDay.Text;
+
+            string host = Session["u_id"].ToString();
+            string eventNavn = eventName.Text;
+            string free = eventDescription.Text;
+            string type = eventTypeDropD.Text;
+
+
+
+            int stat = DB.CreateEvent(new Dictionary<string, string>{
+                {"host",Session["u_id"].ToString()},
+                {"startDate",startDate},
+                {"endDate",endDate},
+                {"eventName",eventName.Text},
+                {"freeTxt",eventDescription.Text},
+                {"eventType",eventTypeDropD.Text}
+            });
+
             Response.Redirect("eventview.aspx");
         }
 

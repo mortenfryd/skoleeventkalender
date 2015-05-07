@@ -176,12 +176,12 @@ namespace skoleeventkalender
                 MySqlCommand cmd = new MySqlCommand(query, this.connection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.Add(new MySqlParameter("p_host", eventinfo["Firstname"]));
-                cmd.Parameters.Add(new MySqlParameter("p_startDate", eventinfo["Lastname"]));
-                cmd.Parameters.Add(new MySqlParameter("p_endDate", eventinfo["Username"]));
-                cmd.Parameters.Add(new MySqlParameter("p_eventName", eventinfo["Password"]));
-                cmd.Parameters.Add(new MySqlParameter("p_freeTxt", eventinfo["Birthday"]));
-                cmd.Parameters.Add(new MySqlParameter("p_eventType", "0"));
+                cmd.Parameters.Add(new MySqlParameter("p_host", eventinfo["host"]));
+                cmd.Parameters.Add(new MySqlParameter("p_startDate", eventinfo["startDate"]));
+                cmd.Parameters.Add(new MySqlParameter("p_endDate", eventinfo["endDate"]));
+                cmd.Parameters.Add(new MySqlParameter("p_eventName", eventinfo["eventName"]));
+                cmd.Parameters.Add(new MySqlParameter("p_freeTxt", eventinfo["freeTxt"]));
+                cmd.Parameters.Add(new MySqlParameter("p_eventType", eventinfo["eventType"]));
 
                 cmd.Parameters.Add(new MySqlParameter("v_res", MySqlDbType.Int32));
                 cmd.Parameters["v_res"].Direction = System.Data.ParameterDirection.Output;

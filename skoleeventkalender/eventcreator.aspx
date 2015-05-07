@@ -1,15 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="createevent.aspx.cs" Inherits="skoleeventkalender.createevent" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <link href="CSS/generalStyle.css" rel="stylesheet" />
-    <link href="CSS/Login.css" rel="stylesheet" />
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master.Master" AutoEventWireup="true" CodeBehind="eventcreator.aspx.cs" Inherits="skoleeventkalender.WebForm3" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <link href="CSS/Login.CSS" rel="stylesheet" />
     <div>
         Event name<br />
         <asp:TextBox ID="eventName" runat="server"></asp:TextBox>
@@ -41,18 +34,17 @@
         <br />
         <br />
         Event type:
-        <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+        <asp:DropDownList ID="eventTypeDropD" runat="server"></asp:DropDownList>
         <br />
         <br />
         <br /> 
         Event description <br /> 
-     <asp:TextBox ID="TextBox1" runat="server" Height="191px" Width="342px"></asp:TextBox>
+     <asp:TextBox ID="eventDescription" runat="server" Height="191px" Width="342px" TextMode="MultiLine"></asp:TextBox>
         <br />
         <br />
         <asp:Button CssClass="btn" ID="eventCreateBtn" runat="server" Text="Create" OnClick="eventCreateBtn_Click" /> 
         <asp:Button CssClass="btn" ID="eventCancelBtn" runat="server" Text="Cancel" OnClick="eventCancelBtn_Click" />
     </div>
-       
-    </form>
-</body>
-</html>
+
+
+</asp:Content>
