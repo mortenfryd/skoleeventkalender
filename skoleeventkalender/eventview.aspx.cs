@@ -10,7 +10,7 @@ namespace skoleeventkalender
 {
     public partial class eventView : System.Web.UI.Page
     {
-        int flag = 1;
+        
         public void updateKalender(string action,DateTime currentDay)
         {
             databaseConnection DB = new databaseConnection();
@@ -41,17 +41,21 @@ namespace skoleeventkalender
             eventCalender.DataTextField = "eventName";
             eventCalender.DataIdField = "eg_id";
 
-            if (!IsPostBack)
+            //if (!IsPostBack)
                 DataBind();
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-       
+            
             eventCalender.Days = 7;
             eventCalender.TimeFormat = DayPilot.Web.Ui.Enums.TimeFormat.Clock24Hours;
             eventCalender.HeaderDateFormat = "yyyy-MM-dd";
-            
+            if (!IsPostBack)
+            {
+                eventCalender.StartDate = DateTime.Now;
+                updateKalender("denne", eventCalender.StartDate);
+            }
         }
 
         private DataTable getTestData()
