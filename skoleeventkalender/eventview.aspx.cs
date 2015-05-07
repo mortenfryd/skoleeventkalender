@@ -10,7 +10,7 @@ namespace skoleeventkalender
 {
     public partial class eventView : System.Web.UI.Page
     {
-        int flag = 0;
+        int flag = 1;
         public void updateKalender(string action,DateTime currentDay)
         {
             databaseConnection DB = new databaseConnection();
@@ -37,9 +37,6 @@ namespace skoleeventkalender
 
             eventCalender.DataSource = DB.GetCalenderEventData(eventCalender.StartDate, eventCalender.StartDate.AddDays(7));
 
-            Response.Write(eventCalender.StartDate.ToString() + ", " + eventCalender.StartDate.AddDays(7).ToString());
-            Response.Write(dateH.denneUge().ToString());
-
             eventCalender.DataStartField = "startDate";
             eventCalender.DataEndField = "endDate";
             eventCalender.DataTextField = "eventName";
@@ -53,8 +50,9 @@ namespace skoleeventkalender
         {
        
             eventCalender.Days = 7;
-
-
+            eventCalender.TimeFormat = DayPilot.Web.Ui.Enums.TimeFormat.Clock24Hours;
+            eventCalender.HeaderDateFormat = "yyyy-MM-dd";
+            /*
             if (flag == 0)
             {
                 updateKalender("denne", DateTime.Now);
