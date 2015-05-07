@@ -10,7 +10,7 @@
 namespace skoleeventkalender {
     
     
-    public partial class adminPage {
+    public partial class createevent {
         
         /// <summary>
         /// form1 control.
@@ -22,129 +22,102 @@ namespace skoleeventkalender {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// userdropdown control.
+        /// eventName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList userdropdown;
+        protected global::System.Web.UI.WebControls.TextBox eventName;
         
         /// <summary>
-        /// select control.
+        /// ecStartYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button select;
+        protected global::System.Web.UI.WebControls.DropDownList ecStartYear;
         
         /// <summary>
-        /// deletebtn control.
+        /// ecStartMonth control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button deletebtn;
+        protected global::System.Web.UI.WebControls.DropDownList ecStartMonth;
         
         /// <summary>
-        /// emailtext control.
+        /// ecStartDay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox emailtext;
+        protected global::System.Web.UI.WebControls.DropDownList ecStartDay;
         
         /// <summary>
-        /// fornavntext control.
+        /// ecEndYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox fornavntext;
+        protected global::System.Web.UI.WebControls.DropDownList ecEndYear;
         
         /// <summary>
-        /// efternavntext control.
+        /// ecEndMonth control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox efternavntext;
+        protected global::System.Web.UI.WebControls.DropDownList ecEndMonth;
         
         /// <summary>
-        /// ddlYear control.
+        /// ecEndDay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlYear;
+        protected global::System.Web.UI.WebControls.DropDownList ecEndDay;
         
         /// <summary>
-        /// ddlMonth control.
+        /// DropDownList1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMonth;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
         
         /// <summary>
-        /// ddlDay control.
+        /// TextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDay;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
         
         /// <summary>
-        /// password control.
+        /// eventCreateBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox password;
+        protected global::System.Web.UI.WebControls.Button eventCreateBtn;
         
         /// <summary>
-        /// passwordconfirm control.
+        /// eventCancelBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox passwordconfirm;
-        
-        /// <summary>
-        /// isadmin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox isadmin;
-        
-        /// <summary>
-        /// editbtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button editbtn;
-        
-        /// <summary>
-        /// errorlabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label errorlabel;
+        protected global::System.Web.UI.WebControls.Button eventCancelBtn;
     }
 }
