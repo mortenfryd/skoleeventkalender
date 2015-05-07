@@ -98,6 +98,11 @@ namespace skoleeventkalender
         {
             updateKalender("naeste", eventCalender.StartDate);
         }
+
+        protected void CreateEventBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("createevent.aspx");
+        }
       
     }
 }

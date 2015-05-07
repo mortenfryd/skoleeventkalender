@@ -14,4 +14,6 @@
     <asp:Button CssClass="btn" ID="forrigeUgeBtn" runat="server" Text="Forrige uge" float="left" OnClick="forrigeUgeBtn_Click"/>
     <asp:Button CssClass="btn" ID="denneUgeBtn" runat="server" Text="Denne uge"  float="center" OnClick="denneUgeBtn_Click"/>
     <div style=" float:right"><asp:Button CssClass="btn" ID="naesteUgeBtn" runat="server" Text="Næste uge" OnClick="naesteUgeBtn_Click" /></div>
+    <br />
+    <asp:Button CssClass="btn" ID="CreateEventBtn" runat="server" Text="Create Event" OnClick="CreateEventBtn_Click" />
 </asp:Content>

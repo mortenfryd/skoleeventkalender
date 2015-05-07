@@ -58,6 +58,30 @@ namespace skoleeventkalender
             }
         }
 
+       public Dictionary<string,string> getUserInfo (int userid)
+       {
+           Dictionary<string, string> data = new Dictionary<string, string>();
+           string query = "SELECT * FROM users WHERE u_id = @userid";
+           
+           if (this.openConnection())
+           {
+               MySqlCommand cmd = new MySqlCommand(query, this.connection);
+
+               cmd.Parameters.AddWithValue("@userid", userid);
+
+               MySqlDataReader dr = cmd.ExecuteReader();
+               while (dr.Read())
+               {
+                   data.Add("u_id", dr["u_id"].ToString());
+                   data.Add("firstname", dr["firstname"].ToString());
+                   data.Add("lastname", dr["email"].ToString());
+                   data.Add("birthday", dr["birthday"].ToString());
+                   data.Add("isAdmin", dr["isAdmin"].ToString());
+               }         
+           }
+           return data;     
+       }
+
        // Login funktion
        // Hvis brugeren ikke findes returneres -1;
        public int Login(string email, string password)

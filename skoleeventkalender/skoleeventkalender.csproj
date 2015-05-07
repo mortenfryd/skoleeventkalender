@@ -75,6 +75,7 @@
     <Content Include="eventview.aspx" />
     <Content Include="default.aspx" />
     <Content Include="opretBruger.aspx" />
+    <Content Include="admin.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="adminPage.aspx.cs">
@@ -121,6 +122,13 @@
     </Compile>
     <Compile Include="opretBruger.aspx.designer.cs">
       <DependentUpon>opretBruger.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin.aspx.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin.aspx.designer.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
