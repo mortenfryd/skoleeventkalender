@@ -137,6 +137,49 @@ namespace skoleeventkalender
 
         }
 
+        public enum createEventStatus
+        {
+            success
+        }
+
+        public int CreateEvent(Dictionary<string, string> eventinfo)
+        {
+            string query = "create_event_procedure";
+            int result = -1;
+
+            if (this.openConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, this.connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new MySqlParameter("p_host", eventinfo["Firstname"]));
+                cmd.Parameters.Add(new MySqlParameter("p_startDate", eventinfo["Lastname"]));
+                cmd.Parameters.Add(new MySqlParameter("p_endDate", eventinfo["Username"]));
+                cmd.Parameters.Add(new MySqlParameter("p_eventName", eventinfo["Password"]));
+                cmd.Parameters.Add(new MySqlParameter("p_freeTxt", eventinfo["Birthday"]));
+                cmd.Parameters.Add(new MySqlParameter("p_eventType", "0"));
+
+                cmd.Parameters.Add(new MySqlParameter("v_res", MySqlDbType.Int32));
+                cmd.Parameters["v_res"].Direction = System.Data.ParameterDirection.Output;
+
+                cmd.ExecuteNonQuery();
+
+                result = (int)cmd.Parameters["v_res"].Value;
+
+                this.closeConnection();
+            }
+            else
+            {
+            }
+
+            if (result == 1)
+            {
+                return (int)createLoginStatus.success;
+            }
+
+            return result;
+        }
+
         public DataTable GetCalenderEventData(DateTime start, DateTime end)
         {
            
