@@ -89,7 +89,7 @@ namespace skoleeventkalender
                         {
                             string bday = (ddlYear.Text + "-" + ddlMonth.Text + "-" + ddlDay.Text);
 
-                            DB.CreateLogin(new Dictionary<string, string>{
+                           int stat =  DB.CreateLogin(new Dictionary<string, string>{
                         { "Username", username.Text },
                         { "Password", password.Text },
                         { "Firstname", firstname.Text},
@@ -97,7 +97,15 @@ namespace skoleeventkalender
                         { "Birthday", bday}
                         });
 
-                            Response.Redirect("default.aspx");
+                           if (stat == (int)databaseConnection.createLoginStatus.success)
+                           {
+                               Response.Redirect("default.aspx");
+                           }
+                           else if(stat == (int)databaseConnection.createLoginStatus.userAlreadyExist)
+                           {
+                               errorlabel.Text = "Brugeren findes allerede.";
+                           }
+
                         }
                         else
                         {
