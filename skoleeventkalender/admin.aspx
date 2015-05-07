@@ -1,15 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="adminPage.aspx.cs" Inherits="skoleeventkalender.adminPage" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <link href="CSS\generalStyle.css" rel="stylesheet" />    
-
-    <title>Admin is root</title>
-</head>
-<body>
-    <form id="form1" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master.Master" AutoEventWireup="true" CodeBehind="admin.aspx.cs" Inherits="skoleeventkalender.admin" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
         <ul align="center">
              <li><a href="">Calender</a></li>
@@ -46,8 +38,7 @@
             <span>Admin?</span> <br />
             <asp:Button ID="editbtn" CssClass="btn" Text="Edit" runat="server" OnClick="editbtn_Click" /><br />
             <asp:Label ID="errorlabel" runat="server"></asp:Label>
-
         </div>
-    </form>
-</body>
-</html>
+
+
+</asp:Content>

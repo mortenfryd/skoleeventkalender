@@ -28,11 +28,20 @@ namespace skoleeventkalender
             DB.DBConnect();
 
             int user_id = DB.Login(username.Text, password.Text);
-            
-            if (user_id != -1)
+
+            Dictionary<string, string> data = DB.getUserInfo(user_id);
+
+
+
+            if (user_id != -1 && data["isAdmin"] == "0")
             {
                 Session["u_id"] = user_id;
                 Response.Redirect("eventview.aspx");
+            }
+            else if (user_id != -1 && data["isAdmin"] == "1")
+            {
+                Session["u_id"] = user_id;
+                Response.Redirect("admin.aspx");
             }
             else
             {
