@@ -20,7 +20,7 @@
         <div>
             <asp:DropDownList ID="userdropdown" runat="server" OnLoad="userdropdown_onLoad" OnSelectedIndexChanged="userdropdown_SelectedIndexChanged"></asp:DropDownList> &nbsp;
             <asp:Button ID="select" runat="server" OnClick="select_Click" Text="Select" />
-            <asp:Button ID="deletebtn" runat="server" Text="Delete" />
+            <asp:Button ID="deletebtn" runat="server" Text="Delete" OnClick="deletebtn_Click" />
             <br />
             <span>Email</span><br />
             <asp:TextBox ID="emailtext" runat="server"></asp:TextBox><br />
@@ -44,7 +44,8 @@
             <asp:TextBox ID="passwordconfirm" runat="server"></asp:TextBox><br />
             <asp:CheckBox ID="isadmin" runat="server" />
             <span>Admin?</span> <br />
-            <asp:Button ID="editbtn" Text="Edit" runat="server" />
+            <asp:Button ID="editbtn" Text="Edit" runat="server" OnClick="editbtn_Click" /><br />
+            <asp:Label ID="errorlabel" runat="server"></asp:Label>
 
         </div>
     </form>

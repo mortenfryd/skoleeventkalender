@@ -62,23 +62,27 @@ namespace skoleeventkalender
 
             if (!IsPostBack)
             {
-                userdropdown.Items.Clear();
-                databaseConnection DB = new databaseConnection();
-                DB.DBConnect();
-
-                MySqlConnection connect = DB.getClone();
-                MySqlCommand cmd = new MySqlCommand("select email from users", connect);
-                connect.Open();
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    userdropdown.Items.Add(new ListItem(reader["email"].ToString(), reader["email"].ToString()));
-                }
-                reader.Close();
-                connect.Close();
+                dropdownrefresh();
             }
             
+        }
+        protected void dropdownrefresh()
+        {
+            userdropdown.Items.Clear();
+            databaseConnection DB = new databaseConnection();
+            DB.DBConnect();
+
+            MySqlConnection connect = DB.getClone();
+            MySqlCommand cmd = new MySqlCommand("select email from users", connect);
+            connect.Open();
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                userdropdown.Items.Add(new ListItem(reader["email"].ToString(), reader["email"].ToString()));
+            }
+            reader.Close();
+            connect.Close();
         }
 
         protected void userdropdown_SelectedIndexChanged(object sender, EventArgs e)
@@ -93,7 +97,7 @@ namespace skoleeventkalender
 
             MySqlConnection connect = DB.getClone();
             string valgtnavn = userdropdown.SelectedValue.ToString();
-            MySqlCommand selected = new MySqlCommand("select firstname, lastname, email, birthday, isadmin from users where email =  '"+valgtnavn+"' order by email" , connect);
+            MySqlCommand selected = new MySqlCommand("select firstname, lastname, email, birthday, isadmin from users where email =  '" +userdropdown.SelectedValue.ToString()+ "' order by email", connect);
             connect.Open();
             MySqlDataReader reader = selected.ExecuteReader();
 
@@ -115,7 +119,26 @@ namespace skoleeventkalender
                 {
                     isadmin.Checked = false;
                 }
-            }          
+            }
+            reader.Close();
+            connect.Close();  
+        }
+
+        protected void deletebtn_Click(object sender, EventArgs e)
+        {
+            databaseConnection DB = new databaseConnection();
+            DB.DBConnect();
+            MySqlConnection connect = DB.getClone();
+            MySqlCommand delete = new MySqlCommand("delete from users where email = '"+userdropdown.SelectedValue.ToString()+"'; ", connect);
+            connect.Open();
+            delete.ExecuteNonQuery();
+            errorlabel.Text = userdropdown.SelectedValue.ToString() + " er slettet.";
+            dropdownrefresh();
+        }
+
+        protected void editbtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
