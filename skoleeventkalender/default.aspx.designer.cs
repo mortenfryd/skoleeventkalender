@@ -31,15 +31,6 @@ namespace skoleeventkalender {
         protected global::System.Web.UI.WebControls.TextBox password;
         
         /// <summary>
-        /// makeuser control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button makeuser;
-        
-        /// <summary>
         /// login control.
         /// </summary>
         /// <remarks>
@@ -47,6 +38,15 @@ namespace skoleeventkalender {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button login;
+        
+        /// <summary>
+        /// makeuser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button makeuser;
         
         /// <summary>
         /// errorlabel control.

@@ -18,7 +18,8 @@
                 <h1>
                     Event Manager
                 </h1>
-                 <asp:Button CssClass="btn" ID="LogoutBtn" runat="server" Text="Logout" OnClick="LogoutBtn_Click" /> 
+                 <asp:Button CssClass="btn" ID="LogoutBtn" runat="server" Text="Logout" OnClick="LogoutBtn_Click" /> &nbsp;
+                 <asp:Button CssClass="btn" ID="gotoadmin" runat="server" Text="Adminside" OnClick="gotoadmin_Click" />
                 </div>
         </div>
         <br />

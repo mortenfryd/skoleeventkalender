@@ -10,9 +10,8 @@
     <asp:TextBox CssClass="textboxUser" ID="username" runat="server"></asp:TextBox> <br />  
     <span>Password</span> <br />
     <asp:TextBox CssClass="textboxPass" ID="password" runat="server" TextMode="Password"></asp:TextBox> <br /> <br />
-    <asp:Button CssClass="btn" ID="makeuser" Text="Opret Bruger" runat="server" OnClick="makeuser_Click" />
     <asp:Button CssClass="btn" ID="login" Text="Login" runat="server" OnClick="login_Click" /><br /> <br />
+    <asp:Button CssClass="btn" ID="makeuser" Text="Opret Bruger" runat="server" OnClick="makeuser_Click" />
     <asp:Label ID="errorlabel" runat="server"></asp:Label> <br /> <br />
-    <a href="eventview.aspx">eventview.aspx</a>
     </div>
 </asp:Content>

@@ -12,6 +12,10 @@ namespace skoleeventkalender
     {
        protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["u_id"] == null)
+            {
+                Response.Redirect("default.aspx");
+            }
 
             if (!Page.IsPostBack)
             {
