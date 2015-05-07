@@ -132,13 +132,30 @@ namespace skoleeventkalender
             MySqlCommand delete = new MySqlCommand("delete from users where email = '"+userdropdown.SelectedValue.ToString()+"'; ", connect);
             connect.Open();
             delete.ExecuteNonQuery();
+            connect.Close();
             errorlabel.Text = userdropdown.SelectedValue.ToString() + " er slettet.";
             dropdownrefresh();
         }
 
         protected void editbtn_Click(object sender, EventArgs e)
         {
+            databaseConnection DB = new databaseConnection();
+            DB.DBConnect();
+            MySqlConnection connect = DB.getClone();
 
+            int adminint = 0;
+
+            if (isadmin.Checked == true)
+            {
+                adminint = 1;
+            }
+            string bday = (ddlYear.Text + "-" + ddlMonth.Text + "-" + ddlDay.Text);
+            MySqlCommand edit = new MySqlCommand("update users set firstname='" + fornavntext.Text + "', lastname='" + efternavntext.Text + "', email='" + emailtext.Text + "', birthday='" + bday + "', isadmin='"+adminint+"' where email = '" + userdropdown.SelectedValue.ToString() + "' ", connect);
+            connect.Open();
+            edit.ExecuteNonQuery();
+            connect.Close();
+            errorlabel.Text = userdropdown.SelectedValue.ToString() + " er blevet ændret.";
+            dropdownrefresh();
         }
     }
 }
