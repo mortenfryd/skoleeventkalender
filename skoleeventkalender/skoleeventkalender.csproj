@@ -64,7 +64,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="adminPage.aspx" />
     <Content Include="createevent.aspx" />
     <Content Include="CSS\generalStyle.css" />
     <Content Include="Web.config">
@@ -78,13 +77,6 @@
     <Content Include="admin.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="adminPage.aspx.cs">
-      <DependentUpon>adminPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="adminPage.aspx.designer.cs">
-      <DependentUpon>adminPage.aspx</DependentUpon>
-    </Compile>
     <Compile Include="createevent.aspx.cs">
       <DependentUpon>createevent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

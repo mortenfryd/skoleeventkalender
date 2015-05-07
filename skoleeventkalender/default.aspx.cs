@@ -16,10 +16,6 @@ namespace skoleeventkalender
             {
                 Response.Redirect("eventview.aspx");
             }
-            else
-            {
-              
-            }
         }
 
         protected void login_Click(object sender, EventArgs e)
@@ -30,8 +26,6 @@ namespace skoleeventkalender
             int user_id = DB.Login(username.Text, password.Text);
 
             Dictionary<string, string> data = DB.getUserInfo(user_id);
-
-
 
             if (user_id != -1 && data["isAdmin"] == "0")
             {
