@@ -24,7 +24,7 @@
             onselectedindexchanged="ecStartMonth_SelectedIndexChanged">
         </asp:DropDownList> 
        
-    Day: <asp:DropDownList ID="ecStartDay" runat="server" OnSelectedIndexChanged="ecStartDay_SelectedIndexChanged">
+    Day: <asp:DropDownList ID="ecStartDay" runat="server" AutoPostBack="True" onselectedindexchanged="ecStartDay_SelectedIndexChanged">
         </asp:DropDownList> <br />
 
         <br />
@@ -36,7 +36,7 @@
             onselectedindexchanged="ecEndMonth_SelectedIndexChanged">
         </asp:DropDownList> 
        
-    Day: <asp:DropDownList ID="ecEndDay" runat="server" OnSelectedIndexChanged="ecEndDay_SelectedIndexChanged">
+    Day: <asp:DropDownList ID="ecEndDay" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ecEndDay_SelectedIndexChanged">
         </asp:DropDownList> <br />
         <br />
         <br />
