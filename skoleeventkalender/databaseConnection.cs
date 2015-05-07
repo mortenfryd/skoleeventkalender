@@ -92,14 +92,14 @@ namespace skoleeventkalender
 
        public enum createLoginStatus
        {
-           success,
            userAlreadyExist,
-           userPassIlligal
+           success
        }
 
         public int CreateLogin(Dictionary<string,string> userinfo){
 
-            string query = "create_user_procedure"; 
+            string query = "create_user_procedure";
+            int result = -1;
 
             if (this.openConnection())
             {
@@ -113,7 +113,12 @@ namespace skoleeventkalender
                 cmd.Parameters.Add(new MySqlParameter("p_birthday", userinfo["Birthday"]));
                 cmd.Parameters.Add(new MySqlParameter("p_is_admin", "0"));
 
+                cmd.Parameters.Add(new MySqlParameter("v_res", MySqlDbType.Int32));
+                cmd.Parameters["v_res"].Direction = System.Data.ParameterDirection.Output;
+
                 cmd.ExecuteNonQuery();
+
+                result = (int)cmd.Parameters["v_res"].Value;
 
                 this.closeConnection();
             }
@@ -121,7 +126,14 @@ namespace skoleeventkalender
             {
             }
 
-            return (int)createLoginStatus.userAlreadyExist;
+            if (result == 0){
+                return (int)createLoginStatus.userAlreadyExist;
+            }else if(result == 1){
+                return (int)createLoginStatus.success;
+            }
+
+            return result;
+
         }
 
         public DataTable GetCalenderEventData(DateTime start, DateTime end)
