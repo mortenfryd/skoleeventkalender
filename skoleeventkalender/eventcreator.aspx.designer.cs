@@ -49,6 +49,24 @@ namespace skoleeventkalender {
         protected global::System.Web.UI.WebControls.DropDownList ecStartDay;
         
         /// <summary>
+        /// ecStartHour control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ecStartHour;
+        
+        /// <summary>
+        /// ecStartMinute control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ecStartMinute;
+        
+        /// <summary>
         /// ecEndYear control.
         /// </summary>
         /// <remarks>
@@ -74,6 +92,24 @@ namespace skoleeventkalender {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ecEndDay;
+        
+        /// <summary>
+        /// ecEndHour control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ecEndHour;
+        
+        /// <summary>
+        /// ecEndMinute control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ecEndMinute;
         
         /// <summary>
         /// eventTypeDropD control.

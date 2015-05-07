@@ -231,10 +231,10 @@ namespace skoleeventkalender
                     row["eg_id"] = 0;
                     row["startDate"] = Convert.ToDateTime(dr["startDate"].ToString());
                     row["endDate"] = Convert.ToDateTime(dr["endDate"].ToString());
-                    row["eventName"] = "Partner conf. call";
-                    row["host"] = "Partner conf. call";
-                    row["freeTxt"] = "Partner conf. call";
-                    row["eventType"] = "Partner conf. call";
+                    row["eventName"] = dr["eventName"].ToString();
+                    row["host"] = dr["host"].ToString();
+                    row["freeTxt"] = dr["freeTxt"].ToString();
+                    row["eventType"] = dr["eventType"].ToString();
                     dt.Rows.Add(row);
                 }
 

@@ -33,12 +33,27 @@ namespace skoleeventkalender
 
                 //Fill days
                 FillDaysStart();
+                fillTime();
             }
         }
 
         public void FillEventType()
         {
             //insert database connection stuff here
+        }
+
+        public void fillTime()
+        {
+            for (int i = 0; i < 24; i++)
+            {
+                ecStartHour.Items.Add(i.ToString());
+                ecEndHour.Items.Add(i.ToString());
+            }
+            for (int i = 0; i < 60; i++)
+            {
+                ecStartMinute.Items.Add(i.ToString());
+                ecEndMinute.Items.Add(i.ToString());
+            }
         }
 
         public void FillDaysStart()
@@ -113,13 +128,9 @@ namespace skoleeventkalender
 
             databaseConnection DB = new databaseConnection();
             DB.DBConnect();
-            string startDate = ecStartYear.Text + "-" + ecStartMonth.Text + "-" + ecStartDay.Text;
-            string endDate = ecEndYear.Text + "-" + ecEndMonth.Text + "-" + ecEndDay.Text;
+            string startDate = ecStartYear.Text + "-" + ecStartMonth.Text + "-" + ecStartDay.Text+" "+ecStartHour.Text+":"+ecStartMinute.Text+":00";
+            string endDate = ecEndYear.Text + "-" + ecEndMonth.Text + "-" + ecEndDay.Text + " " + ecEndHour.Text + ":" + ecEndMinute.Text + ":00";
 
-            string host = Session["u_id"].ToString();
-            string eventNavn = eventName.Text;
-            string free = eventDescription.Text;
-            string type = eventTypeDropD.Text;
 
 
 

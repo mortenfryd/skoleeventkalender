@@ -64,7 +64,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="createevent.aspx" />
     <Content Include="CSS\generalStyle.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -78,13 +77,6 @@
     <Content Include="eventcreator.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="createevent.aspx.cs">
-      <DependentUpon>createevent.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="createevent.aspx.designer.cs">
-      <DependentUpon>createevent.aspx</DependentUpon>
-    </Compile>
     <Compile Include="databaseConnection.cs" />
     <Compile Include="dateHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
