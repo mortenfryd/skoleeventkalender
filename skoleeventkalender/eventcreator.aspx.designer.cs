@@ -10,16 +10,7 @@
 namespace skoleeventkalender {
     
     
-    public partial class createevent {
-        
-        /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+    public partial class WebForm3 {
         
         /// <summary>
         /// eventName control.
@@ -85,22 +76,22 @@ namespace skoleeventkalender {
         protected global::System.Web.UI.WebControls.DropDownList ecEndDay;
         
         /// <summary>
-        /// DropDownList1 control.
+        /// eventTypeDropD control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList eventTypeDropD;
         
         /// <summary>
-        /// TextBox1 control.
+        /// eventDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox eventDescription;
         
         /// <summary>
         /// eventCreateBtn control.

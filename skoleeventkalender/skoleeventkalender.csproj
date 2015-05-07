@@ -75,6 +75,7 @@
     <Content Include="default.aspx" />
     <Content Include="opretBruger.aspx" />
     <Content Include="admin.aspx" />
+    <Content Include="eventcreator.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="createevent.aspx.cs">
@@ -121,6 +122,13 @@
     </Compile>
     <Compile Include="admin.aspx.designer.cs">
       <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="eventcreator.aspx.cs">
+      <DependentUpon>eventcreator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="eventcreator.aspx.designer.cs">
+      <DependentUpon>eventcreator.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
