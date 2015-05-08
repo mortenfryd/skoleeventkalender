@@ -28,8 +28,6 @@ namespace skoleeventkalender
                 gotoadmin.Visible = false;
             }
 
-
-
         }
 
         protected void LogoutBtn_Click(object sender, EventArgs e)

@@ -89,9 +89,23 @@ namespace skoleeventkalender
             connect.Close();
         }
 
+        protected void resetInput()
+        {
+            fornavntext.Text = "";
+            efternavntext.Text = "";
+            emailtext.Text = "";
+            isadmin.Checked = false;
+            ddlYear.Items.FindByValue(ddlYear.Text.ToString()).Selected = false;
+            ddlYear.Items.FindByValue(System.DateTime.Now.Year.ToString()).Selected = true;  //set current year as selected
+            ddlDay.Items.FindByValue(ddlDay.Text.ToString()).Selected = false;
+            ddlDay.Items.FindByValue(System.DateTime.Now.Day.ToString()).Selected = true;  //set current day as selected
+            ddlMonth.Items.FindByValue(ddlMonth.Text.ToString()).Selected = false;
+            ddlMonth.Items.FindByValue(System.DateTime.Now.Month.ToString()).Selected = true;  //set current month as selected
+        }
+
         protected void userdropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+        
         }
 
         protected void select_Click(object sender, EventArgs e)
@@ -100,7 +114,6 @@ namespace skoleeventkalender
             DB.DBConnect();
 
             MySqlConnection connect = DB.getClone();
-            string valgtnavn = userdropdown.SelectedValue.ToString();
             MySqlCommand selected = new MySqlCommand("select firstname, lastname, email, birthday, isadmin from users where email =  '" +userdropdown.SelectedValue.ToString()+ "' order by email", connect);
             connect.Open();
             MySqlDataReader reader = selected.ExecuteReader();
@@ -159,6 +172,7 @@ namespace skoleeventkalender
             edit.ExecuteNonQuery();
             connect.Close();
             errorlabel.Text = userdropdown.SelectedValue.ToString() + " er blevet ændret.";
+            resetInput();
             dropdownrefresh();
         }
     }
