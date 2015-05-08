@@ -206,7 +206,7 @@ namespace skoleeventkalender
 
         public void deleteEvent(int eg_id) {
 
-            string query = "DELETE FROM event_general WHERE eg_id = @eg_id";
+            string query = "DELETE FROM events_general WHERE eg_id = @eg_id";
 
             if (this.openConnection())
             {
@@ -248,12 +248,12 @@ namespace skoleeventkalender
                 {
                     DataRow row;
                     row = dt.NewRow();
-                    row["eg_id"] = 0;
+                    row["eg_id"] = dr["eg_id"].ToString();
                     row["startDate"] = Convert.ToDateTime(dr["startDate"].ToString());
                     row["endDate"] = Convert.ToDateTime(dr["endDate"].ToString());
                     row["eventName"] = dr["eventName"].ToString();
                     row["host"] = dr["host"].ToString();
-                    row["freeTxt"] = dr["freeTxt"].ToString();
+                    row["freeTxt"] = "<b>" + dr["eventName"].ToString() + "</b>" + "<br />" + "<br />" + dr["freeTxt"].ToString();
                     row["eventType"] = dr["eventType"].ToString();
                     dt.Rows.Add(row);
                 }

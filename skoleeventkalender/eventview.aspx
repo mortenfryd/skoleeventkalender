@@ -16,4 +16,10 @@
     <div style=" float:right"><asp:Button CssClass="btn" ID="naesteUgeBtn" runat="server" Text="Næste uge" OnClick="naesteUgeBtn_Click" /></div>
     <br />
     <asp:Button CssClass="btn" ID="CreateEventBtn" runat="server" Text="Create Event" OnClick="CreateEventBtn_Click" />
+    <br />
+    <br />
+    <asp:DropDownList ID="selectedEvent" runat="server" AutoPostBack="True" OnSelectedIndexChanged="selectedEvent_SelectedIndexChanged1">
+    </asp:DropDownList>
+    <asp:Button CssClass="btn" ID="tilmeldEvent" runat="server" Text="Sign up for event" OnClick="tilmeldEvent_Click" />
+    <asp:Button CssClass="btn" ID="DeleteEvent" runat="server" Text="Delete event" OnClick="DeleteEvent_Click" />
 </asp:Content>

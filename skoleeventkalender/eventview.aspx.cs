@@ -10,7 +10,17 @@ namespace skoleeventkalender
 {
     public partial class eventView : System.Web.UI.Page
     {
-        
+        public void fillDropdown(DataTable dt)
+        {
+            foreach (DataRow dr in dt.Rows)
+            {
+                // MORTEN IS HERE DO NOT TOUCH!
+                selectedEvent.Items.Add(new ListItem(dr["eventName"].ToString(), dr["eg_id"].ToString()));
+                
+            }
+        }
+
+
         public void updateKalender(string action,DateTime currentDay)
         {
             databaseConnection DB = new databaseConnection();
@@ -34,15 +44,19 @@ namespace skoleeventkalender
             eventCalender.TimeFormat = DayPilot.Web.Ui.Enums.TimeFormat.Clock24Hours;
             eventCalender.HeaderDateFormat = "yyyy-MM-dd";
 
-            eventCalender.DataSource = DB.GetCalenderEventData(eventCalender.StartDate, eventCalender.StartDate.AddDays(7));
+            DataTable dt = DB.GetCalenderEventData(eventCalender.StartDate, eventCalender.StartDate.AddDays(7));
 
+            eventCalender.DataSource = dt;
+            //string 
             eventCalender.DataStartField = "startDate";
             eventCalender.DataEndField = "endDate";
-            eventCalender.DataTextField = "eventName";
+            eventCalender.DataTextField = "freeTxt";
             eventCalender.DataIdField = "eg_id";
 
-            //if (!IsPostBack)
+            if (IsPostBack) return;
                 DataBind();
+                fillDropdown(dt);
+            
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -51,10 +65,11 @@ namespace skoleeventkalender
             eventCalender.Days = 7;
             eventCalender.TimeFormat = DayPilot.Web.Ui.Enums.TimeFormat.Clock24Hours;
             eventCalender.HeaderDateFormat = "yyyy-MM-dd";
-            if (!IsPostBack)
+            if (IsPostBack) return;
             {
                 eventCalender.StartDate = DateTime.Now;
                 updateKalender("denne", eventCalender.StartDate);
+                Response.Write("ikke postback");
             }
         }
 
@@ -112,6 +127,34 @@ namespace skoleeventkalender
         protected void eventCalender_TimeRangeSelected(object sender, DayPilot.Web.Ui.Events.TimeRangeSelectedEventArgs e)
         {
             Response.Write("asdasdasddsadsadsaojdsaoijdsaoijdsadsadsaoij");
+        }
+
+        protected void tilmeldEvent_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void DeleteEvent_Click(object sender, EventArgs e)
+        {
+            databaseConnection DB = new databaseConnection();
+            DB.DBConnect();
+
+            int id = Convert.ToInt32(selectedEvent.SelectedValue);
+            Response.Write(id);
+
+            //DB.deleteEvent(id);
+        }
+
+        //protected void selectedEvent_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    string id = selectedEvent.SelectedItem.Value;
+        //    Response.Write(id);
+        //}
+
+        protected void selectedEvent_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+            //string id = selectedEvent.SelectedItem.Value;
+           // Response.Write(id);
         }
       
     }

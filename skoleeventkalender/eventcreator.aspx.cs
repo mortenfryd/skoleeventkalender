@@ -11,7 +11,7 @@ namespace skoleeventkalender
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            if (IsPostBack) return;
             {
                 //Fill Years
                 for (int i = 2015; i <= 2030; i++)
