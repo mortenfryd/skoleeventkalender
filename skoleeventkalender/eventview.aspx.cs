@@ -103,6 +103,16 @@ namespace skoleeventkalender
         {
             Response.Redirect("eventcreator.aspx");
         }
+
+        protected void eventCalender_EventClick(object sender, DayPilot.Web.Ui.Events.EventClickEventArgs e)
+        {
+            Response.Write("hahahahahaha");
+        }
+
+        protected void eventCalender_TimeRangeSelected(object sender, DayPilot.Web.Ui.Events.TimeRangeSelectedEventArgs e)
+        {
+            Response.Write("asdasdasddsadsadsaojdsaoijdsaoijdsadsadsaoij");
+        }
       
     }
 }

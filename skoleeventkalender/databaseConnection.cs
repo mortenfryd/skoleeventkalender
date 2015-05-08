@@ -204,6 +204,26 @@ namespace skoleeventkalender
             return result;
         }
 
+        public void deleteEvent(int eg_id) {
+
+            string query = "DELETE FROM event_general WHERE eg_id = @eg_id";
+
+            if (this.openConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, this.connection);
+
+                cmd.Parameters.AddWithValue("@eg_id", eg_id);
+
+                cmd.ExecuteNonQuery();
+
+                this.closeConnection();
+            }
+            else
+            {
+            }
+
+        }
+
         public DataTable GetCalenderEventData(DateTime start, DateTime end)
         {
            
