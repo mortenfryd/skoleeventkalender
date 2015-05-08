@@ -36,6 +36,7 @@ namespace skoleeventkalender
                 //Fill days
                 FillDays();
             }
+           ((Button)this.Master.FindControl("gotoadmin")).Visible = false;
         }
 
         public void FillDays()

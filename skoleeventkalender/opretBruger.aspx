@@ -13,14 +13,14 @@
     <asp:TextBox CssClass="textboxUser" ID="username" runat="server"></asp:TextBox> <br />
     <br />
 
-    Year: <asp:DropDownList ID="ddlYear" runat="server" AutoPostBack="True"
+    Year: <asp:DropDownList CssClass="dropdown" ID="ddlYear" runat="server" AutoPostBack="True"
             onselectedindexchanged="ddlYear_SelectedIndexChanged" ></asp:DropDownList> 
            
-    Month: <asp:DropDownList ID="ddlMonth" runat="server" AutoPostBack="True"
+    Month: <asp:DropDownList CssClass="dropdown" ID="ddlMonth" runat="server" AutoPostBack="True"
             onselectedindexchanged="ddlMonth_SelectedIndexChanged">
         </asp:DropDownList> 
        
-    Day: <asp:DropDownList ID="ddlDay" runat="server">
+    Day: <asp:DropDownList CssClass="dropdown" ID="ddlDay" runat="server">
         </asp:DropDownList> <br />
 
 
