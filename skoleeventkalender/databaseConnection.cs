@@ -247,6 +247,38 @@ namespace skoleeventkalender
 
         }
 
+        public List<string> getEventSignups(int eg_id){
+
+            string query = "SELECT firstname, lastname FROM tilmeldinger LEFT JOIN users on tilmeldinger.p_id = users.u_id WHERE tilmeldinger.event_id=@eg_id";
+
+            List<string> res = new List<string>();
+
+            if (this.openConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, this.connection);
+
+                cmd.Parameters.AddWithValue("@eg_id", eg_id);
+
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    res.Add(dr["firstname"] + " " + dr["lastname"]);
+                }
+
+                dr.Close();
+
+                this.closeConnection();
+
+                return res;
+            }
+            else
+            {
+                return res;
+            }
+
+        }
+
         public void deleteEvent(int eg_id) {
 
             string query = "DELETE FROM events_general WHERE eg_id = @eg_id";
