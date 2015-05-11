@@ -83,7 +83,6 @@ namespace skoleeventkalender
             {
                 eventCalender.StartDate = DateTime.Now;
                 updateKalender("denne", eventCalender.StartDate);
-                Response.Write("ikke postback");
             }
         }
 
