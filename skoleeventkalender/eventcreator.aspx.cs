@@ -98,6 +98,23 @@ namespace skoleeventkalender
             }
         }
 
+        protected void ecStartHour_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(ecEndHour.Text)<Convert.ToInt32(ecStartHour.SelectedValue))
+            {
+                ecEndHour.Text = ecStartHour.SelectedValue;
+                ecEndMinute.Text = "30";
+            }
+        }
+
+        protected void ecStartMinute_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(ecEndMinute.Text) < Convert.ToInt32(ecStartMinute.SelectedValue))
+            {
+                ecEndMinute.Text = ecStartMinute.SelectedValue;
+            }
+        }
+
         protected void ecEndYear_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (Convert.ToInt32(ecEndYear.Text) < Convert.ToInt32(ecStartYear.SelectedValue))
@@ -119,6 +136,24 @@ namespace skoleeventkalender
             if (Convert.ToInt32(ecEndDay.Text) < Convert.ToInt32(ecStartDay.SelectedValue))
             {
                 ecEndDay.Text = ecStartDay.SelectedValue;
+            }
+        }
+
+        protected void ecEndHour_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(ecEndHour.Text) < Convert.ToInt32(ecStartHour.SelectedValue))
+            {
+                ecEndHour.Text = ecStartHour.SelectedValue;
+                ecEndMinute.Text = "30";
+            }
+        }
+
+        protected void ecEndMinute_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(ecEndMinute.Text) < Convert.ToInt32(ecStartMinute.SelectedValue))
+            {
+                ecEndMinute.Text =ecStartMinute.SelectedValue;
+
             }
         }
 
@@ -151,5 +186,9 @@ namespace skoleeventkalender
             //gå tilbage til kalender
             Response.Redirect("eventview.aspx");
         }
+
+        
+
+        
     }
 }

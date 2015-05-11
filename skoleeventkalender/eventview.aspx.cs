@@ -135,7 +135,10 @@ namespace skoleeventkalender
             int id = Convert.ToInt32(selectedEvent.SelectedValue);
             int u_id = Convert.ToInt32(Session["u_id"]);
 
-            signUpEvent(id, u_id);
+            if (DB.signUpEvent(id, u_id))
+                signUpSucces.Text = "Sign up was succesfull";
+            else
+                signUpSucces.Text = "Sign up failed. Be ashamed!";
         }
 
         protected void DeleteEvent_Click(object sender, EventArgs e)

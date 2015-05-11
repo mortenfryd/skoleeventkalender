@@ -204,7 +204,7 @@ namespace skoleeventkalender
             return result;
         }
 
-        public void signUpEvent(int eg_id, int u_id){
+        public bool signUpEvent(int eg_id, int u_id){
 
             string query = "INSERT INTO tilmeldinger values(@eg_id, @u_id)";
 
@@ -218,9 +218,11 @@ namespace skoleeventkalender
                 cmd.ExecuteNonQuery();
 
                 this.closeConnection();
+                return true;
             }
             else
             {
+                return false;
             }
 
         }

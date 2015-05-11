@@ -22,4 +22,5 @@
     </asp:DropDownList>
     <asp:Button CssClass="btn" ID="tilmeldEvent" runat="server" Text="Sign up for event" OnClick="tilmeldEvent_Click" />
     <asp:Button CssClass="btn" ID="DeleteEvent" runat="server" Text="Delete event" OnClick="DeleteEvent_Click" />
+    <asp:Label ID="signUpSucces" runat="server" Text=""></asp:Label>
 </asp:Content>

@@ -19,9 +19,9 @@
        
     Day: <asp:DropDownList ID="ecStartDay" runat="server" AutoPostBack="True" onselectedindexchanged="ecStartDay_SelectedIndexChanged">
         </asp:DropDownList> 
-    Hour: <asp:DropDownList ID="ecStartHour" runat="server" AutoPostBack="True"></asp:DropDownList>
+    Hour: <asp:DropDownList ID="ecStartHour" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ecStartHour_SelectedIndexChanged"></asp:DropDownList>
 
-        Minute: <asp:DropDownList ID="ecStartMinute" runat="server" AutoPostBack="True"></asp:DropDownList>
+        Minute: <asp:DropDownList ID="ecStartMinute" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ecStartMinute_SelectedIndexChanged"></asp:DropDownList>
         <br /><br />
         End date<br />
     Year: <asp:DropDownList ID="ecEndYear" runat="server" AutoPostBack="True"
@@ -33,9 +33,9 @@
        
     Day: <asp:DropDownList ID="ecEndDay" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ecEndDay_SelectedIndexChanged">
         </asp:DropDownList> 
-        Hour: <asp:DropDownList ID="ecEndHour" runat="server" AutoPostBack="True"></asp:DropDownList>
+        Hour: <asp:DropDownList ID="ecEndHour" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ecEndHour_SelectedIndexChanged"></asp:DropDownList>
 
-        Minute: <asp:DropDownList ID="ecEndMinute" runat="server" AutoPostBack="True"></asp:DropDownList>
+        Minute: <asp:DropDownList ID="ecEndMinute" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ecEndMinute_SelectedIndexChanged"></asp:DropDownList>
         <br />
         <br />
         <br />
