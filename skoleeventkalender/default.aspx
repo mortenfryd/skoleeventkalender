@@ -3,7 +3,6 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <link href="CSS/Login.CSS" rel="stylesheet" />
     <div class="login_page">
     <h1>Login</h1>
     <span>Username</span> <br />

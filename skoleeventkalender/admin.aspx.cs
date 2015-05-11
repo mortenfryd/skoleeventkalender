@@ -12,10 +12,21 @@ namespace skoleeventkalender
     {
        protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["u_id"] == null)
+            if (Session["u_id"] != null && Convert.ToString(Session["admin"]) == "0")
             {
+                //Du er en bruger
                 Response.Redirect("default.aspx");
             }
+            else if (Session["u_id"] != null && Convert.ToString(Session["admin"]) == "1")
+            {
+                //Du er admin
+            }
+            else
+            {
+                //Du er ikke logget ind, tilbage til forsiden.
+                Response.Redirect("default.aspx");
+            }
+            
 
             if (!Page.IsPostBack)
             {
@@ -107,14 +118,15 @@ namespace skoleeventkalender
         {
         
         }
-
         protected void select_Click(object sender, EventArgs e)
         {
+            errorlabel.Text = "";
+            userdropdown.Enabled = false;
             databaseConnection DB = new databaseConnection();
             DB.DBConnect();
 
             MySqlConnection connect = DB.getClone();
-            MySqlCommand selected = new MySqlCommand("select firstname, lastname, email, birthday, isadmin from users where email =  '" +userdropdown.SelectedValue.ToString()+ "' order by email", connect);
+            MySqlCommand selected = new MySqlCommand("select firstname, lastname, email, birthday, isadmin from users where email =  '" + userdropdown.SelectedValue.ToString() + "' order by email", connect);
             connect.Open();
             MySqlDataReader reader = selected.ExecuteReader();
 
@@ -138,7 +150,7 @@ namespace skoleeventkalender
                 }
             }
             reader.Close();
-            connect.Close();  
+            connect.Close();
         }
 
         protected void deletebtn_Click(object sender, EventArgs e)
@@ -156,6 +168,7 @@ namespace skoleeventkalender
 
         protected void editbtn_Click(object sender, EventArgs e)
         {
+            userdropdown.Enabled = true;
             databaseConnection DB = new databaseConnection();
             DB.DBConnect();
             MySqlConnection connect = DB.getClone();
