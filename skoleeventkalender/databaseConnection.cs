@@ -204,26 +204,46 @@ namespace skoleeventkalender
             return result;
         }
 
-        public bool signUpEvent(int eg_id, int u_id){
+        public enum signUpEventStatus
+        {
+            success,
+            AlreadySignedUp
+        }
 
-            string query = "INSERT INTO tilmeldinger values(@eg_id, @u_id)";
+        public int signUpEvent(int eg_id, int u_id){
+
+            string query = "sign_up_event_procedure";
+            int result = -1;
 
             if (this.openConnection())
             {
                 MySqlCommand cmd = new MySqlCommand(query, this.connection);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@eg_id", eg_id);
-                cmd.Parameters.AddWithValue("@u_id", u_id);
+                cmd.Parameters.Add(new MySqlParameter("p_eg_id", eg_id));
+                cmd.Parameters.Add(new MySqlParameter("p_u_id", u_id));
+
+                cmd.Parameters.Add(new MySqlParameter("v_res", MySqlDbType.Int32));
+                cmd.Parameters["v_res"].Direction = System.Data.ParameterDirection.Output;
 
                 cmd.ExecuteNonQuery();
 
+                result = (int)cmd.Parameters["v_res"].Value;
+
                 this.closeConnection();
-                return true;
+
             }
             else
             {
-                return false;
+
             }
+
+            if (result == 0)
+                return (int)signUpEventStatus.AlreadySignedUp;
+            else if (result == 1)
+                return (int)signUpEventStatus.success;
+
+                return result;
 
         }
 
