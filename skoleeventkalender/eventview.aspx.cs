@@ -20,6 +20,22 @@ namespace skoleeventkalender
             }
         }
 
+        public void fillSignUp()
+        {
+            signedUpUsers.Items.Clear();
+            databaseConnection DB = new databaseConnection();
+            DB.DBConnect();
+
+            int event_id = Convert.ToInt32(selectedEvent.SelectedValue);
+
+            List<string> data = DB.getEventSignups(event_id);
+            //kald en sql funktion til at hente brugere som er tilmeldt
+            foreach (string item in data)
+            {
+                signedUpUsers.Items.Add(item);
+            }
+        }
+
         public void updateKalender(string action,DateTime currentDay)
         {
             databaseConnection DB = new databaseConnection();
@@ -134,11 +150,15 @@ namespace skoleeventkalender
 
             int id = Convert.ToInt32(selectedEvent.SelectedValue);
             int u_id = Convert.ToInt32(Session["u_id"]);
+            int resolved = DB.signUpEvent(id, u_id);
 
-            if (DB.signUpEvent(id, u_id))
+            if (resolved==(int)databaseConnection.signUpEventStatus.success)
                 signUpSucces.Text = "Sign up was succesfull";
+            else if(resolved==(int)databaseConnection.signUpEventStatus.AlreadySignedUp)
+                signUpSucces.Text = "You are already signed up for this event";
             else
-                signUpSucces.Text = "Sign up failed. Be ashamed!";
+                signUpSucces.Text = "You fucking retard!";
+            fillSignUp();
         }
 
         protected void DeleteEvent_Click(object sender, EventArgs e)
@@ -155,7 +175,7 @@ namespace skoleeventkalender
 
         protected void selectedEvent_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //kald en sql funktion til at hente brugere som er tilmeldt
+            fillSignUp();
         }
     }
 }

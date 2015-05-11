@@ -24,5 +24,6 @@
     <asp:Button CssClass="btn" ID="DeleteEvent" runat="server" Text="Delete event" OnClick="DeleteEvent_Click" />
     <asp:Label ID="signUpSucces" runat="server" Text=""></asp:Label>
     <br />
-    <asp:TextBox ID="atendeesBox" runat="server" Height="75px" TextMode="MultiLine"></asp:TextBox>
-</asp:Content>
+    <asp:ListBox ID="signedUpUsers" runat="server" Height="123px" Width="286px"></asp:ListBox>
+    <br />
+    </asp:Content>
