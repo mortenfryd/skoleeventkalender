@@ -153,17 +153,9 @@ namespace skoleeventkalender
             updateKalender("denne",eventCalender.StartDate);
         }
 
-        //protected void selectedEvent_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    string id = selectedEvent.SelectedItem.Value;
-        //    Response.Write(id);
-        //}
-
-        protected void selectedEvent_SelectedIndexChanged1(object sender, EventArgs e)
+        protected void selectedEvent_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //string id = selectedEvent.SelectedItem.Value;
-           // Response.Write(id);
+            //kald en sql funktion til at hente brugere som er tilmeldt
         }
-      
     }
 }
