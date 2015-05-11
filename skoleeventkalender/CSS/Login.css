@@ -50,16 +50,3 @@ body {
     -webkit-box-shadow: 0 0 0 1px #E8C291 inset;
     box-shadow: 0 0 0 1px #E8C291 inset;
 } 
-
-.btn {
-  color: #ffffff;
-  font-size: 16px;
-  background: #adadad;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-}
-
-.btn:hover {
-  background: #cfcfcf;
-  text-decoration: none;
-}
