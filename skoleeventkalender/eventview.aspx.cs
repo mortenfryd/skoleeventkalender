@@ -12,14 +12,13 @@ namespace skoleeventkalender
     {
         public void fillDropdown(DataTable dt)
         {
+            selectedEvent.Items.Clear();
             foreach (DataRow dr in dt.Rows)
             {
                 // MORTEN IS HERE DO NOT TOUCH!
                 selectedEvent.Items.Add(new ListItem(dr["eventName"].ToString(), dr["eg_id"].ToString()));
-                
             }
         }
-
 
         public void updateKalender(string action,DateTime currentDay)
         {
@@ -53,7 +52,6 @@ namespace skoleeventkalender
             eventCalender.DataTextField = "freeTxt";
             eventCalender.DataIdField = "eg_id";
 
-            if (IsPostBack) return;
                 DataBind();
                 fillDropdown(dt);
             
@@ -131,7 +129,13 @@ namespace skoleeventkalender
 
         protected void tilmeldEvent_Click(object sender, EventArgs e)
         {
+            databaseConnection DB = new databaseConnection();
+            DB.DBConnect();
 
+            int id = Convert.ToInt32(selectedEvent.SelectedValue);
+            int u_id = Convert.ToInt32(Session["u_id"]);
+
+            signUpEvent(id, u_id);
         }
 
         protected void DeleteEvent_Click(object sender, EventArgs e)
@@ -140,9 +144,10 @@ namespace skoleeventkalender
             DB.DBConnect();
 
             int id = Convert.ToInt32(selectedEvent.SelectedValue);
-            Response.Write(id);
+            //Response.Write(id);
 
-            //DB.deleteEvent(id);
+            DB.deleteEvent(id);
+            updateKalender("denne",eventCalender.StartDate);
         }
 
         //protected void selectedEvent_SelectedIndexChanged(object sender, EventArgs e)
