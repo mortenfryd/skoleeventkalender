@@ -204,6 +204,27 @@ namespace skoleeventkalender
             return result;
         }
 
+        public void signUpEvent(int eg_id, int u_id){
+
+            string query = "INSERT INTO tilmeldinger values(@eg_id, @u_id)";
+
+            if (this.openConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, this.connection);
+
+                cmd.Parameters.AddWithValue("@eg_id", eg_id);
+                cmd.Parameters.AddWithValue("@u_id", u_id);
+
+                cmd.ExecuteNonQuery();
+
+                this.closeConnection();
+            }
+            else
+            {
+            }
+
+        }
+
         public void deleteEvent(int eg_id) {
 
             string query = "DELETE FROM events_general WHERE eg_id = @eg_id";
