@@ -75,7 +75,20 @@ namespace skoleeventkalender
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
+            if (Session["u_id"] != null && Convert.ToString(Session["admin"]) == "0")
+            {
+                DeleteEvent.Visible = false;
+            }
+            else if (Session["u_id"] != null && Convert.ToString(Session["admin"]) == "1")
+            {
+                DeleteEvent.Visible = true;
+            }
+            else
+            {
+                DeleteEvent.Visible = false;
+            }
+
             eventCalender.Days = 7;
             eventCalender.TimeFormat = DayPilot.Web.Ui.Enums.TimeFormat.Clock24Hours;
             eventCalender.HeaderDateFormat = "yyyy-MM-dd";
