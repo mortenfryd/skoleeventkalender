@@ -281,7 +281,7 @@ namespace skoleeventkalender
 
         public void deleteEvent(int eg_id) {
 
-            string query = "DELETE FROM events_general WHERE eg_id = @eg_id";
+            string query = "DELETE FROM tilmeldinger WHERE event_id = @eg_id; DELETE FROM events_general WHERE eg_id = @eg_id";
 
             if (this.openConnection())
             {
