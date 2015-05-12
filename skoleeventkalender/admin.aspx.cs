@@ -88,13 +88,13 @@ namespace skoleeventkalender
             DB.DBConnect();
 
             MySqlConnection connect = DB.getClone();
-            MySqlCommand cmd = new MySqlCommand("select email from users", connect);
+            MySqlCommand cmd = new MySqlCommand("select u_id, email from users", connect);
             connect.Open();
             MySqlDataReader reader = cmd.ExecuteReader();
 
             while (reader.Read())
             {
-                userdropdown.Items.Add(new ListItem(reader["email"].ToString(), reader["email"].ToString()));
+                userdropdown.Items.Add(new ListItem(reader["email"].ToString(), reader["u_id"].ToString()));
             }
             reader.Close();
             connect.Close();
@@ -126,7 +126,7 @@ namespace skoleeventkalender
             DB.DBConnect();
 
             MySqlConnection connect = DB.getClone();
-            MySqlCommand selected = new MySqlCommand("select firstname, lastname, email, birthday, isadmin from users where email =  '" + userdropdown.SelectedValue.ToString() + "' order by email", connect);
+            MySqlCommand selected = new MySqlCommand("select firstname, lastname, email, birthday, isadmin from users where u_id =  " + userdropdown.SelectedValue.ToString() + " order by email", connect);
             connect.Open();
             MySqlDataReader reader = selected.ExecuteReader();
 
@@ -158,11 +158,13 @@ namespace skoleeventkalender
             databaseConnection DB = new databaseConnection();
             DB.DBConnect();
             MySqlConnection connect = DB.getClone();
-            MySqlCommand delete = new MySqlCommand("delete from users where email = '"+userdropdown.SelectedValue.ToString()+"'; ", connect);
+            MySqlCommand delete = new MySqlCommand("delete from tilmeldinger where p_id = " + userdropdown.SelectedValue.ToString() + "; delete from users where u_id = "+userdropdown.SelectedValue.ToString()+"; ", connect);
             connect.Open();
+
             delete.ExecuteNonQuery();
+
             connect.Close();
-            errorlabel.Text = userdropdown.SelectedValue.ToString() + " er slettet.";
+            errorlabel.Text = userdropdown.SelectedItem.Text + " er slettet.";
             dropdownrefresh();
         }
 
@@ -181,11 +183,11 @@ namespace skoleeventkalender
             string bday = (ddlYear.Text + "-" + ddlMonth.Text + "-" + ddlDay.Text);
             if (password.Text == passwordconfirm.Text)
             {
-                MySqlCommand edit = new MySqlCommand("update users set firstname='" + fornavntext.Text + "', lastname='" + efternavntext.Text + "', email='" + emailtext.Text + "', birthday='" + bday + "', isadmin='" + adminint + "' where email = '" + userdropdown.SelectedValue.ToString() + "' ", connect);
+                MySqlCommand edit = new MySqlCommand("update users set firstname='" + fornavntext.Text + "', lastname='" + efternavntext.Text + "', email='" + emailtext.Text + "', birthday='" + bday + "', isadmin='" + adminint + "' where u_id = " + userdropdown.SelectedValue.ToString() + " ", connect);
                 connect.Open();
                 edit.ExecuteNonQuery();
                 connect.Close();
-                errorlabel.Text = userdropdown.SelectedValue.ToString() + " er blevet ændret.";
+                errorlabel.Text = userdropdown.SelectedItem.Text + " er blevet ændret.";
                 resetInput();
                 dropdownrefresh();
                 userdropdown.Enabled = true;
