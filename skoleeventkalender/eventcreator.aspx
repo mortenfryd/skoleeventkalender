@@ -41,7 +41,7 @@
         <br />
         <asp:DropDownList style="display:none" ID="eventTypeDropD" runat="server"></asp:DropDownList>
         Event description <br /> 
-     <asp:TextBox ID="eventDescription" runat="server" Height="191px" Width="342px" TextMode="MultiLine"></asp:TextBox>
+     <asp:TextBox CssClass="textArea" ID="eventDescription" runat="server" Height="191px" Width="342px" TextMode="MultiLine"></asp:TextBox>
         <br />
         <br />
         <asp:Button CssClass="btn" ID="eventCreateBtn" runat="server" Text="Create" OnClick="eventCreateBtn_Click" /> 

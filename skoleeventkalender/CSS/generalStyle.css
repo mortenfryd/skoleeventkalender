@@ -47,6 +47,19 @@ li {
     box-shadow: 0 1px 1px #CCC inset, 0 1px 0 #FFF;
 }
 
+.textArea {
+    background: #F1F1F1;
+    padding: 10px 10px 10px 10px;
+    width: 270px;
+    border: 1px solid #CCC;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+    -webkit-box-shadow: 0 1px 1px #CCC inset, 0 1px 0 #FFF;
+    box-shadow: 0 1px 1px #CCC inset, 0 1px 0 #FFF;
+}
+
 .dropdown {
     background: #F1F1F1 !important;
     padding: 10px !important;
